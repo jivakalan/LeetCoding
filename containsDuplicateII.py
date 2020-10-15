@@ -27,26 +27,48 @@ Created on Fri Oct  9 23:22:39 2020
 # Output: false
 # =============================================================================
 
+#worst case - they are at opposite ends (if i start from the beginning)
+#ori n the middle if i start from opposite ends
+
 
 #complexity analysis ...o(n2)
 
 #brute force then optimize
 
+
 nums =  [1,2,3,1]
 k = 3
+
+class Solution_1(object):
+    def containsNearbyDuplicate2(self,nums,k):
+                
+                for i in range(0,len(nums)):
+                    for j in range(0,len(nums)):
+                        #print(i,j,nums[i]==nums[j],i!=j,abs(i-j))
+                        if nums[i]==nums[j] and i!=j and abs(i-j)<=k:
+                            return True
+                       
+                return False
+a=Solution_1()                
+
+a.containsNearbyDuplicate2(nums = [1,0,1,1], k = 1)
+
+##testing commmit 
+
+######################time limit exceeded on above solution
+
+
 
 class Solution(object):
     def containsNearbyDuplicate(self,nums,k):
                 
                 for i in range(0,len(nums)):
                     for j in range(0,len(nums)):
-                #        print(i,j,nums[i]==nums[j],i!=j,abs(i-j))
+                        print(i,j,nums[i]==nums[j],i!=j,abs(i-j)<=k)
+                      
                         if nums[i]==nums[j] and i!=j and abs(i-j)<=k:
-                            return True
-                        else:
-                            return False
+                            return True 
+                        
+                return False
 a=Solution()                
-
-a.containsNearbyDuplicate(nums = [1,2,3,1,2,3], k = 2)
-
-##testing commmit 
+a.containsNearbyDuplicate(nums = [1,0,1,1], k = 1)
