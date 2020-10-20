@@ -43,3 +43,5 @@ a=Solution()
 out=a.kidsWithCandies(
                     candies = [12,1,12]
                     ,extraCandies = 10)
+
+##is there a faster solution? 
