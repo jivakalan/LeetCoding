@@ -33,3 +33,27 @@ Created on Mon Oct 19 22:02:55 2020
 # nums.length == 2n
 # 1 <= nums[i] <= 10^3
 # =============================================================================
+
+
+##brute force 
+
+
+class Solution():
+    def shuffleArray(self, nums, n):
+        c=0
+        out=[]
+        for i in range(0,len(nums)):
+            if i <n:
+                out.insert(i+c, nums[i])
+                c+=1
+            elif i>=n:
+                out.insert(i-c+1,nums[i])
+                c-=1    
+        return out          
+        
+a=Solution()
+out = a.shuffleArray( nums = [2,5,1,3,4,7], n = 3)
+
+
+##complexity is 0(N)...check every element 
+
