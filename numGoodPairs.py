@@ -66,16 +66,19 @@ nums = [1,2,3,1,1,3]
 #hashmap is the right approach 
 
 
-#class Solution2(object):
- #   def numgoodPairs2(self,nums):
+class Solution2(object):
+    def numgoodPairs2(self,nums):
         mydict={}
         c=0
-        for i in range(0,len(nums)):
-            mydict[i] =nums[i] 
-            if nums[i] in mydict:
-                c+=1
-                
-  #      return c
+        for i in nums:
+            if i in mydict:
+                c+= mydict[i]
+                mydict[i]+=1
+                print(mydict)
+ 
+            else:
+                mydict[i]=1]
+        return c
                 
   
 a=Solution()                     
@@ -83,3 +86,6 @@ b=Solution2()
 
 a.numgoodPairs(nums =  [1,2,3,1,1,3])          
 b.numgoodPairs2(nums =  [1,2,3,1,1,3])        
+
+
+
