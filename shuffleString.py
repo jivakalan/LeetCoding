@@ -29,3 +29,30 @@
 # 0 <= indices[i] < n
 # All values of indices are unique (i.e. indices is a permutation of the integers from 0 to n - 1).
 # =============================================================================
+
+
+s = "codeleet"
+
+indices = [4,5,6,7,0,2,1,3]
+
+0 1 2 3 4 5 6 7
+c o d e l e e t
+
+        c
+
+
+class Solution(object):
+    
+    def shuffleString(self,s, indices):
+        sl=list(s)
+        new_string = [0]*len(indices)
+        for i in range(0,len(sl)):
+            new_string[indices[i]]= sl[i]
+        new_sl = ''.join(new_string)
+        return new_sl
+    
+a=Solution()
+a.shuffleString(s = "art", indices = [1,0,2])
+a.shuffleString(s = "aaiougrt", indices = [4,0,2,6,7,3,1,5])
+
+
