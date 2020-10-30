@@ -6,7 +6,7 @@ Created on Tue Oct 27 22:38:01 2020
 """
 
 # =============================================================================
-# Balanced strings are those who have equal quantity of 'L' and 'R' characters.
+# 1221.Balanced strings are those who have equal quantity of 'L' and 'R' characters.
 # 
 # Given a balanced string s split it in the maximum amount of balanced strings.
 # 

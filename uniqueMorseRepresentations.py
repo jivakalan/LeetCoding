@@ -24,31 +24,46 @@ Created on Tue Oct 27 22:45:37 2020
 
 #There are 2 different transformations, "--...-." and "--...--.".
 
-10:47
 
 
-morse=[".-","-...","-.-.","-..",".","..-.","--.","....","..",".---","-.-",".-..","--","-.","---",".--.","--.-",".-.","...","-","..-","...-",".--","-..-","-.--","--.."]
 
-import string
 
-alphabet={}
-c=0
-for i in string.ascii_lowercase:
-    
-    alphabet[c]=i
-    c+=1
-
-alphabet_to_morse = {}    
-for i in range(len(alphabet)):
-    alphabet_to_morse[alphabet[i]] = morse[i]
-    
-
-words = ["gin"]
-
-translation={}
-for word in words:
-    translation=[]
-    for letter in word:
+class Solution(object):
+    def uniqueMorseRepresentations(self, words):
         
-        print(letter,alphabet_to_morse[letter])
+        import string
+        """
+        :type words: List[str]
+        :rtype: int
+        """       
         
+        morse=[".-","-...","-.-.","-..",".","..-.","--.","....","..",".---","-.-",".-..","--","-.","---",".--.","--.-",".-.","...","-","..-","...-",".--","-..-","-.--","--.."]    
+
+        
+        alphabet={}
+        c=0
+        for i in string.ascii_lowercase:
+            
+            alphabet[c]=i
+            c+=1
+        
+        alphabet_to_morse = {}    
+        for i in range(len(alphabet)):
+            alphabet_to_morse[alphabet[i]] = morse[i]
+
+        translate=[]
+        for word in words:
+            
+            xor=""
+            for letter in word:
+                xor=xor+alphabet_to_morse[letter]
+                print(xor) 
+            translate.append(xor)
+        
+        
+        uniq_trans= set(translate)
+        return len(uniq_trans)
+
+                
+a=Solution()
+a.uniqueMorseRepresentations(words = ["gin", "zen", "gig", "msg"])

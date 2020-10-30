@@ -40,66 +40,6 @@ Created on Sat Oct 24 21:52:47 2020
 # The answer output can be returned in any order.
 # =============================================================================
 
-cpdomians =["900 google.mail.com", "50 yahoo.com", "1 intel.mail.com", "5 wiki.org"]
-
-cpdomains =["9001 discuss.leetcode.com"]
-
-
-cpdomians =["900 google.mail.com", "1 intel.mail.com"]
-
-dic={}
-
-for i in cpdomians:
-
-    if i.split()[1]  in dic:
-         dic[i.split()[1]] += int(i.split()[0])
-    else:
-        dic[i.split()[1]]  = int(i.split()[0])
-        
-        
-    if i.split(".")[1]+"."+i.split(".")[2] in dic:
-        dic[i.split(".")[1]+"."+i.split(".")[2]] += int(i.split()[0])
-    else:
-        dic[i.split(".")[1]+"."+i.split(".")[2]] = int(i.split()[0])
-        
-        
-
-    if i.split(".")[2] in dic:
-        dic[i.split(".")[2]] += int(i.split()[0]) 
-    else:
-        dic[i.split(".")[2]] = int(i.split()[0])
-
-"""
-from collections import Counter
-
-cpdomians =["900 google.mail.com", "50 yahoo.com", "1 intel.mail.com", "5 wiki.org"]
-
-dict={}
-
-for domain in cpdomians:
-    dict[domain.split()[1]] = int(domain.split()[0])
-    frags =
-for i in range():
-    
-    
-    print(  )
-    print(i)
-
-ans = Counter()     
-for i in cpdomians:
-    count, i = i.split()
-    count = int(count)
-    frags = i.split(".")
-
-    for i in range(len(frags)):
-        ans[".".join(frags[i:])] += count
-        print(ans)
-    out=["{} {}".format(ct, dom) for dom, ct in ans.items()]    
-
-        
-
-        
-
 
 
 class Solution(object):
@@ -109,3 +49,40 @@ class Solution(object):
         :rtype: List[str]
         """
         
+        
+        dic={}
+        for domain in cpdomains:
+         
+            
+            if domain.split()[1] in dic:       
+                dic[domain.split()[1] ] +=  int(domain.split()[0])
+                
+            else:
+                dic[domain.split()[1] ] = int(domain.split()[0])
+            
+            
+            if domain.split()[1].split(".")[1]+ "." + domain.split()[1].split(".")[2]  in dic:       
+            
+                dic[domain.split()[1].split(".")[1]+ "." + domain.split()[1].split(".")[2]  ] +=  int(domain.split()[0])
+            else:
+                dic[domain.split()[1].split(".")[1]+ "." + domain.split()[1].split(".")[2]  ] = int(domain.split()[0])
+            
+            
+            if domain.split()[1].split(".")[2] in dic:       
+                dic[ domain.split()[1].split(".")[2]  ]    +=  int(domain.split()[0])
+            else:
+                dic[ domain.split()[1].split(".")[2]  ] = int(domain.split()[0])
+        return dic
+
+
+a=Solution()
+out = a.subdomainVisits(cpdomains =["900 google.mail.com", "50 yahoo.com", "1 intel.mail.com", "5 wiki.org"])  
+
+cpdomians =["900 google.mail.com", "50 yahoo.com", "1 intel.mail.com", "5 wiki.org"]
+
+cpdomains =["9001 discuss.leetcode.com"]
+
+
+cpdomians =["900 google.mail.com", "1 intel.mail.com"]
+
+cpdomians=["9001 discuss.leetcode.com"]

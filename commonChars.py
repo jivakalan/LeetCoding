@@ -7,6 +7,10 @@ Created on Mon Oct 26 10:54:54 2020
 
 # =============================================================================
 #1002. Find Common Characters
+# =============================================================================
+# Given an array A of strings made only from lowercase letters, return a list of all characters that show up in all strings within the list (including duplicates).  For example, if a character occurs 3 times in all strings but not 4 times, you need to include that character three times in the final answer.
+# 
+# =============================================================================
 # Example 1:
 # 
 # Input: ["bella","label","roller"]
@@ -16,8 +20,23 @@ Created on Mon Oct 26 10:54:54 2020
 # Input: ["cool","lock","cook"]
 # Output: ["c","o"]
 # =============================================================================
+words=["cool","lock","cook"]
+
+unique = list(set(words[0]).intersection(set(words[1])).intersection(set(words[2])))
+
+counter=[]
+for letter in unique:
+    for word in words:
+        thistuple= ( word, letter, word.count(letter) )
+        counter.append(tuple([word, letter, word.count(letter)])  )
 
 
+
+#output min of each unique element
+cnt=0
+for i in range(0,len(counter)):
+    print(counter[i][2],counter[i][1])
+    
 ##create a dictionary with all letters in alphabet 
 
 import string
@@ -25,33 +44,3 @@ alphabet = dict.fromkeys(string.ascii_lowercase, 0)
 
 nums= ["bella","label","roller"]
 
-l=[]
-for letter in alphabet:
-        
-    for i in range(len(nums)):
-        print(nums[i].count(letter))
-        cnt= nums[i].count(letter)
-        if alphabet[letter]>=3:
-            alphabet[letter]=3
-        else:
-            
-            alphabet[letter] += cnt
-        
-
-dic = {}
-for letter in nums[0]:
-    if letter in dic:
-        continue
-    cnt = nums[0].count(letter)
-    for item in A:
-        cnt = min(cnt, item.count(c))
-        if cnt == 0:
-            break
-    if cnt != 0:
-        dic[c] = cnt
-res = []
-for c, cnt in dic.items():
-    res.extend([c] * cnt)
-
-            
-        
