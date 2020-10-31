@@ -26,15 +26,36 @@ Created on Tue Oct 27 22:38:01 2020
 # Explanation: s can be split into "RL", "LLLRRR", "LR", each substring contains same number of 'L' and 'R'.
 # =============================================================================
 
-
-s = "RLRRLLRLRL"
-
-what is the maximum number of BALANCED Strings that can be Created
+s="RLRRRLLRLL"
 
 
-RL RL RL  RRLL   RLRRLLRLRL  
 
-Output =4
+
+
+cnt=0
+for i in range(0,len(s),2):
+    j=i+2
+    print(i,j)
+    substring = s[i:j]
+
+    if substring.count('R') == substring.count('L'):
+        cnt+=1
+   
+    
+    else:
+        j=j+2
+        print('else',i,j)
+        substring=s[i:j]
+        if substring.count('R') == substring.count('L'):
+            cnt+=1
+            print(substring)
+        
+        
+     
+
+
+
+
 
 
 class Solution(object):
@@ -44,3 +65,13 @@ class Solution(object):
         :rtype: int
         """
         
+        cnt =0
+        rs=0
+        ls=0
+        for i in range(0,len(s)):
+            if s[i]=='R':
+                rs+=1
+            if s[i]=='L':
+                ls+=1
+            if rs == ls:
+                cnt+=1

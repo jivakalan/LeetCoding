@@ -48,41 +48,37 @@ class Solution(object):
         :type cpdomains: List[str]
         :rtype: List[str]
         """
-        
-        
+                
+                
         dic={}
         for domain in cpdomains:
-         
             
-            if domain.split()[1] in dic:       
-                dic[domain.split()[1] ] +=  int(domain.split()[0])
+            
+            subdomains = domain.split()[1].split(".")
+            
+            for i in range(0,len(subdomains)):
+                print(".".join(subdomains[i:]))    
+                if ".".join(subdomains[i:]) in dic:
+                    dic[".".join(subdomains[i:])] +=  int(domain.split()[0])
+                else:
+                    dic[".".join(subdomains[i:])] =  int(domain.split()[0])
                 
-            else:
-                dic[domain.split()[1] ] = int(domain.split()[0])
-            
-            
-            if domain.split()[1].split(".")[1]+ "." + domain.split()[1].split(".")[2]  in dic:       
-            
-                dic[domain.split()[1].split(".")[1]+ "." + domain.split()[1].split(".")[2]  ] +=  int(domain.split()[0])
-            else:
-                dic[domain.split()[1].split(".")[1]+ "." + domain.split()[1].split(".")[2]  ] = int(domain.split()[0])
-            
-            
-            if domain.split()[1].split(".")[2] in dic:       
-                dic[ domain.split()[1].split(".")[2]  ]    +=  int(domain.split()[0])
-            else:
-                dic[ domain.split()[1].split(".")[2]  ] = int(domain.split()[0])
-        return dic
+        res = []  
+        for key, value in dic.items():
+            print(value, key)
+            res.append(str(value)+' ' + key)
 
-
+        return res
+    
 a=Solution()
-out = a.subdomainVisits(cpdomains =["900 google.mail.com", "50 yahoo.com", "1 intel.mail.com", "5 wiki.org"])  
-
-cpdomians =["900 google.mail.com", "50 yahoo.com", "1 intel.mail.com", "5 wiki.org"]
+out = a.subdomainVisits(cpdomains =["9001 discuss.leetcode.com"])  
+out = a.subdomainVisits(
+cpdomains =["900 google.mail.com", "50 yahoo.com", "1 intel.mail.com", "5 wiki.org"]
+)  
 
 cpdomains =["9001 discuss.leetcode.com"]
 
 
-cpdomians =["900 google.mail.com", "1 intel.mail.com"]
+cpdomains =["900 google.mail.com", "1 intel.mail.com"]
 
-cpdomians=["9001 discuss.leetcode.com"]
+cpdomains=["9001 discuss.leetcode.com"]
