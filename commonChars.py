@@ -20,27 +20,35 @@ Created on Mon Oct 26 10:54:54 2020
 # Input: ["cool","lock","cook"]
 # Output: ["c","o"]
 # =============================================================================
+import string
+alphabet = dict.fromkeys(string.ascii_lowercase, 0)
+
+words = ["bella","label","roller"]
+
 words=["cool","lock","cook"]
 
 unique = list(set(words[0]).intersection(set(words[1])).intersection(set(words[2])))
 
+
 counter=[]
+
 for letter in unique:
     for word in words:
-        thistuple= ( word, letter, word.count(letter) )
         counter.append(tuple([word, letter, word.count(letter)])  )
 
-
-
 #output min of each unique element
-cnt=0
+import pandas as pd 
+
+df=pd.DataFrame(columns=['letter','count'])
+
 for i in range(0,len(counter)):
-    print(counter[i][2],counter[i][1])
     
-##create a dictionary with all letters in alphabet 
+    df= df.append({ 'letter': counter[i][1] , 'count': counter[i][2] } 
+                  , ignore_index=True  )
 
-import string
-alphabet = dict.fromkeys(string.ascii_lowercase, 0)
 
-nums= ["bella","label","roller"]
+ab= df.groupby(['letter'])['count'].min()
 
+out = []
+for letter in unique:
+    out.append(letter* ab[letter])
