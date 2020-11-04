@@ -20,35 +20,41 @@ Created on Mon Oct 26 10:54:54 2020
 # Input: ["cool","lock","cook"]
 # Output: ["c","o"]
 # =============================================================================
-import string
-alphabet = dict.fromkeys(string.ascii_lowercase, 0)
-
-words = ["bella","label","roller"]
-
-words=["cool","lock","cook"]
-
-unique = list(set(words[0]).intersection(set(words[1])).intersection(set(words[2])))
 
 
-counter=[]
-
-for letter in unique:
-    for word in words:
-        counter.append(tuple([word, letter, word.count(letter)])  )
-
-#output min of each unique element
-import pandas as pd 
-
-df=pd.DataFrame(columns=['letter','count'])
-
-for i in range(0,len(counter)):
     
-    df= df.append({ 'letter': counter[i][1] , 'count': counter[i][2] } 
-                  , ignore_index=True  )
+class Solution(object):
+    def commonChars(self, words):
+        
+        #fix this - its hard coded!
+        unique=set(words[0])
+        for i in range(0,len(words)):
+            unique= unique.intersection(set(words[i]))
+        unique= list(unique)
+        
+        counter=[]
+        
+        for letter in unique:
+            for word in words:
+                counter.append(tuple([word, letter, word.count(letter)])  )
+                
+        dic={}
+        for i in range(0,len(counter)):
+            if counter[i][1] in dic:
+                if counter[i][2]<=dic[counter[i][1]] :
+                    
+                    dic[counter[i][1]] = counter[i][2]
+            else:
+                dic[counter[i][1]]= counter[i][2]
+        
+        out = []
+        for letter in unique:
+            out.extend([letter] * dic[letter])
+    
+        return out
+     
+a= Solution()
+a.commonChars(words = ["bella","label","roller"])
 
+a.commonChars(words = ["dadaabaa","bdaaabcc","abccddbb","bbaacdba","ababbbab","ccddbbba","bbdabbda","bdabaacb"])
 
-ab= df.groupby(['letter'])['count'].min()
-
-out = []
-for letter in unique:
-    out.append(letter* ab[letter])
