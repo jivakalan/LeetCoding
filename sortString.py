@@ -16,44 +16,7 @@
 
 s = "aaaabbbbcccc"
 output = "abccbaabccba"
-
-result = list(i for i in s)
-
-result2 = []
-
-#step 1
-out=[]
-intermed=""
-for i in range(0,len(s)):
-    ##inte=i
-    
-    print(s[i],i, intermed< s[i])
-    if intermed < s[i] :
-        out.append(s[i])
-    else:
-        continue 
-    intermed = s[i]
-                
-#step 2
-intermed=''
-
-result.sort(reverse = True)
-
-for i in range(0,len(s)):
-        
-    if intermed > s[i] :        
-        
-        print('continue')
-
-    else:
-        out.append(s[i]) 
-        
-    intermed = s[i]
-                
-
-
-#step 3
-
+s="aaaabbbbcccc"
 
 class Solution(object):
     def sortString(self, s):
@@ -62,3 +25,35 @@ class Solution(object):
         :rtype: str
         """
         
+        out=[]
+        intermed=s
+        oldstring = s
+        while len(s)>0:        
+            intermed = oldstring
+            #step 1-3
+            
+            while len(intermed)>0:
+                minchar =min(intermed)
+                out.append(minchar)
+                intermed= intermed.replace(minchar,'')
+                s=s.replace(minchar,'',1)
+            
+            intermed = oldstring
+            
+            #step 4-6
+            #intermed=s
+            if len(s)>0:
+                
+                while len(intermed)>0:
+                    maxchar = max(intermed)
+                    out.append(maxchar)
+                    intermed= intermed.replace(maxchar,'')
+                    s=s.replace(maxchar,'',1)    
+        
+        #step4
+        outs=''.join(out)
+        return outs
+            
+a=Solution()
+a.sortString("rat")
+a.sortString("leetcode")
