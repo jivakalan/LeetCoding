@@ -51,13 +51,13 @@ class Solution(object):
         for word in words:
             dic[word]=0
             for letter in word:
-                
-                if letter in chars:
-                    dic[word] += 1
-                    
+                if word.count(letter) <= chars.count(letter):
+        
+                    if letter in chars:
+                        dic[word] += 1
+                        
         outsum = 0
         for key in dic:
-            print(dic[key],len(key))
             if dic[key] == len(key):
                 outsum += dic[key]
         return outsum
@@ -67,7 +67,4 @@ a.countCharacters(words, chars)
 a.countCharacters(words = ["hello","world","leetcode"], chars = "welldonehoneyr")
 
 
-bwr='boygirdlggnh'
-
-"usdruypficfbpfbivlrhutcgvyjenlxzeovdyjtgvvfdjzcmikjraspdfp"
-#need to check the above exaple 
+ 
