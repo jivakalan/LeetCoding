@@ -39,6 +39,7 @@ chars = "atach"
 
 
 
+
 class Solution(object):
     def countCharacters(self, words, chars):
         """
@@ -61,10 +62,13 @@ class Solution(object):
             if dic[key] == len(key):
                 outsum += dic[key]
         return outsum
+
     
 a=Solution()
 a.countCharacters(words, chars)
 a.countCharacters(words = ["hello","world","leetcode"], chars = "welldonehoneyr")
 
+
+#test
 
  
