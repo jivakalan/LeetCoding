@@ -38,7 +38,7 @@ chars = "atach"
 #can the words in words be formed using characters from char? 
 
 
-
+## have to deal with collisions!!!!!!!!
 
 class Solution(object):
     def countCharacters(self, words, chars):
@@ -47,20 +47,18 @@ class Solution(object):
         :type chars: str
         :rtype: int
         """
-                
-        dic={}
-        for word in words:
-            dic[word]=0
-            for letter in word:
-                if word.count(letter) <= chars.count(letter):
-        
-                    if letter in chars:
-                        dic[word] += 1
                         
-        outsum = 0
-        for key in dic:
-            if dic[key] == len(key):
-                outsum += dic[key]
+        possible = []
+        sum=0
+        for word in words:
+        
+            for letter in word:
+                if word.count(letter) > chars.count(letter):
+                    break
+            else:
+                possible.append(word)   
+                sum+=len(word)
+
         return outsum
 
     
@@ -68,7 +66,6 @@ a=Solution()
 a.countCharacters(words, chars)
 a.countCharacters(words = ["hello","world","leetcode"], chars = "welldonehoneyr")
 
-
-#test
-
  
+
+
