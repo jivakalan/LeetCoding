@@ -57,3 +57,5 @@ class Solution(object):
 a=Solution()
 a.sortString("rat")
 a.sortString("leetcode")
+
+s='leetcode'

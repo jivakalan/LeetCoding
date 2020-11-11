@@ -6,11 +6,9 @@ Created on Thu Nov  5 13:18:29 2020
 """
 # =============================================================================
 # 1374. Generate a String With Characters That Have Odd Counts
-# Given an integer n, return a string with n characters such that each character in such
-#  string occurs an odd number of times.
+# Given an integer n, return a string with n characters such that each character in such string occurs an odd number of times.
 # 
-# The returned string must contain only lowercase English letters. If there are multiples valid 
-# strings, return any of them.  
+# The returned string must contain only lowercase English letters. If there are multiples valid strings, return any of them.  
 # 
 # Example 1:
 # 
@@ -37,11 +35,42 @@ n=4  triplet + single ccc a
      4 singles
 n=6 ; 6 singles     
 
-     
-class Solution(object):
-    def generateTheString(self, n):
-        """
-        :type n: int
-        :rtype: str
-        """
-        
+#return string where each each character appears an odd # of times 
+#if n = 4 then there must be 4 characters 
+#only lowercase english letters ( if the input has an UPPERCASE ? )
+#if multiple valid, return any 
+
+n = 1
+#a
+n = 2 
+#a b
+n= 3  
+
+newword ='aaab'
+
+
+## simple algoritm
+N = 1  : PICK THE FIRST LETTER A 
+N = 2 : PICK THE FIRST TWO LETTERS ab 
+N = 3  aaa 
+N= 4  AAA B
+N= 10  AAA BBB CCC D
+N= 20  aaa BBB CCC D EEE FFF GGG h
+
+
+n= 500 
+
+500/3 ? 
+
+
+#BRUTE FORCE 
+import string 
+alphabet =  string.ascii_lowercase
+
+
+newstring =''
+
+
+
+
+for i in range(0,n):
