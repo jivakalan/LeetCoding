@@ -25,33 +25,52 @@ class Solution(object):
         :rtype: str
         """
         
-        out=[]
-        intermed=s
-        oldstring = s
-        while len(s)>0:        
-            intermed = oldstring
-            #step 1-3
+        s2= s
+        s3= s
+        
+        out=[] 
             
-            while len(intermed)>0:
-                minchar =min(intermed)
-                out.append(minchar)
-                intermed= intermed.replace(minchar,'')
-                s=s.replace(minchar,'',1)
-            
-            intermed = oldstring
-            
-            #step 4-6
-            #intermed=s
-            if len(s)>0:
+        while len(s3)>0:
                 
-                while len(intermed)>0:
-                    maxchar = max(intermed)
-                    out.append(maxchar)
-                    intermed= intermed.replace(maxchar,'')
-                    s=s.replace(maxchar,'',1)    
+            minchar = min(s)
+            out.append(minchar)
+            
+            s2= s2.replace(minchar,'',1)
+            s=s.replace(minchar,'')
+            
+            while len(s)>0:
+                nextmin = min(s)
+                if nextmin > minchar:
+                    
+                    out.append(nextmin)
+                    s=s.replace(nextmin,'')
+                    s2= s2.replace(nextmin,'',1)
+                    minchar= nextmin
+            
+            s3=s2
+        
+        
+            if len(s3)>0:
+                
+                maxchar = max(s2)
+                out.append(maxchar)
+                s2= s2.replace(maxchar,'')
+                s3= s3.replace(maxchar,'',1)
+                
+                while len(s2)>0:
+                    nextmax = max(s2)
+                    if nextmax < max(out):
+                        out.append(nextmax)
+                        s2=s2.replace(nextmax,'')
+                        s3=s3.replace(nextmax,'',1)
+                        maxchar = nextmax 
+                
+                s=s3
+                s2= s
         
         #step4
         outs=''.join(out)
+
         return outs
             
 a=Solution()
