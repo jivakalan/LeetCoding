@@ -37,17 +37,43 @@ Created on Wed Nov 11 18:08:13 2020
 
 
 
-grid = [[0,1,0,0],[1,1,1,0],[0,1,0,0],[1,1,0,0]]
+grid = [[0,1,0,0]
+       ,[1,1,0,0],
+        [0,0,0,0],
+        [0,0,0,0]]
 
-grid =  [[1,0]]
-n=0
-for i in grid:
-    for square in i:
-        print(i,square)
-        if square == 1:
-            n+=1
+import numpy as np
+grid = np.array(grid)
 
-out = n*4 - (n-1)*2
+
+rows = grid.shape[0]
+cols = grid.shape[1]
+
+perimeter =0 
+
+dic={}
+
+for x in range(0,cols):
+    for y in range(0,rows):
+        if grid[x,y]==1 :
+            
+            perimeter +=4 
+            print(perimeter)
+            if len(dic)>0:
+                
+                if x == list(dic.values())[0]:
+                  
+                    perimeter = perimeter - 2
+                    
+                    print('x',perimeter)
+                if y== list(dic.values())[1]:
+                    perimeter = perimeter - 2
+                    
+                    print('y',perimeter)
+            dic['x']= x
+            dic['y']= y
+            
+
 
 
 class Solution(object):
@@ -59,9 +85,12 @@ class Solution(object):
         n=0
         for i in grid:
             for square in i:
-                print(i,square)
+                #print(i,square)
                 if square == 1:
                     n+=1
         
         out = n*4 - (n-1)*2
         return out
+    
+a= Solution()
+#a.islandPerimeter(grid)
