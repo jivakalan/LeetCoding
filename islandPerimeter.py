@@ -38,9 +38,9 @@ Created on Wed Nov 11 18:08:13 2020
 
 
 grid = [[0,1,0,0]
-       ,[1,1,0,0],
-        [0,0,0,0],
-        [0,0,0,0]]
+       ,[1,1,1,0],
+        [0,1,0,0],
+        [1,1,0,0]]
 
 import numpy as np
 grid = np.array(grid)
@@ -52,26 +52,27 @@ cols = grid.shape[1]
 perimeter =0 
 
 dic={}
-
+dicto={}
 for x in range(0,cols):
     for y in range(0,rows):
+#        print(x,y)
+        
+        
         if grid[x,y]==1 :
             
             perimeter +=4 
-            print(perimeter)
-            if len(dic)>0:
-                
-                if x == list(dic.values())[0]:
-                  
-                    perimeter = perimeter - 2
-                    
-                    print('x',perimeter)
-                if y== list(dic.values())[1]:
-                    perimeter = perimeter - 2
-                    
-                    print('y',perimeter)
-            dic['x']= x
-            dic['y']= y
+            
+            if x in dic.values():
+                print('yes')
+                perimeter = perimeter -2
+            if y in dicto.values():
+                print('yes')
+                perimeter = perimeter -2
+            dic[x,y] = x
+            dicto[x,y] = y
+            print(dic)
+            
+
             
 
 
