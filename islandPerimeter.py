@@ -42,40 +42,8 @@ grid = [[0,1,0,0]
         [0,1,0,0],
         [1,1,0,0]]
 
-import numpy as np
-grid = np.array(grid)
 
-
-rows = grid.shape[0]
-cols = grid.shape[1]
-
-perimeter =0 
-
-dic={}
-dicto={}
-for x in range(0,cols):
-    for y in range(0,rows):
-#        print(x,y)
-        
-        
-        if grid[x,y]==1 :
-            
-            perimeter +=4 
-            
-            if x in dic.values():
-                print('yes')
-                perimeter = perimeter -2
-            if y in dicto.values():
-                print('yes')
-                perimeter = perimeter -2
-            dic[x,y] = x
-            dicto[x,y] = y
-            print(dic)
-            
-
-            
-
-
+grid=[[1,0]]
 
 class Solution(object):
     def islandPerimeter(self, grid):
@@ -83,15 +51,37 @@ class Solution(object):
         :type grid: List[List[int]]
         :rtype: int
         """
-        n=0
-        for i in grid:
-            for square in i:
-                #print(i,square)
-                if square == 1:
-                    n+=1
         
-        out = n*4 - (n-1)*2
-        return out
+        
+        import numpy as np
+        grid = np.array(grid)
+        
+        
+        rows = grid.shape[0]
+        cols = grid.shape[1]
+        perimeter =0 
+        
+        for x in range(0,cols):
+            for y in range(0,rows):
+                
+                
+                if grid[x,y]==1 :
+                    #print(x,y)
+                    
+                    perimeter +=4 
+                    #print('perimeter is:', perimeter)
+                   # print(x,y-1)
+                    if (y-1)>=0 and grid[x,y-1]==1:
+                        
+                        perimeter = perimeter -2
+                        #print('left',perimeter)
+                    if (x-1)>=0 and grid[x-1,y]==1:
+                       
+                        perimeter = perimeter -2
+                        #print('above',perimeter)
+                    
+        return perimeter
+    
     
 a= Solution()
-#a.islandPerimeter(grid)
+a.islandPerimeter(grid)
