@@ -26,22 +26,8 @@ Created on Sun Nov 15 17:53:25 2020
 # =============================================================================
 
 
-10:51
-text = "alice is a good girl she is a good student"
-text_l = text.split()
-first = "a"
-second = "good"
-
-firs= first+' '+ second
-
-dic={}
-for i in range(0,len(text_l)):
-    print(text_l[i]==first, text_l[i+1])
-    if text[i] == first:
-        dic[first]=text_l[i+1]
-
-
-
+#7-01
+#end - 7:09 --accepted/submission runtime error -7:13..second submission;7:16 submissoin accepted
 
 
 
@@ -53,4 +39,32 @@ class Solution(object):
         :type second: str
         :rtype: List[str]
         """
+        text_l = text.split()
+        out=[]
+        for i in range(0,len(text_l)):
+            if i+2 < len(text_l):
+                if text_l[i] == first and text_l[i+1] == second:
+                    #print(text_l[i+2])
+                    out.append(text_l[i+2])
+        return out
+
+a=Solution()
+
+# =============================================================================
+# text = "alice is a good girl she is a good student"
+# first = "a"
+# second = "good"
+# 
+# text = "we will we will rock you"
+# first = "we" 
+# second = "will"
+# =============================================================================
+
+text = "jkypmsxd jkypmsxd kcyxdfnoa jkypmsxd kcyxdfnoa jkypmsxd kcyxdfnoa kcyxdfnoa jkypmsxd kcyxdfnoa"
+
+first="kcyxdfnoa"
+second = "jkypmsxd"
+
+a.findOcurrences(text, first, second)
         
+       
