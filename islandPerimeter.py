@@ -61,8 +61,8 @@ class Solution(object):
         cols = grid.shape[1]
         perimeter =0 
         
-        for x in range(0,cols):
-            for y in range(0,rows):
+        for x in range(0,rows):
+            for y in range(0,cols):
                 
                 
                 if grid[x,y]==1 :
