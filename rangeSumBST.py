@@ -28,24 +28,30 @@ Created on Thu Nov 19 19:32:57 2020
 # =============================================================================
 
 
+10:14
+10:35
+
+10:36 youtube
+
+root=[10,5,15,3,7,None,18]
+
+low = 7
+high = 15
 
 
-
-
-
-
-# Definition for a binary tree node.
-# class TreeNode(object):
-#     def __init__(self, val=0, left=None, right=None):
-#         self.val = val
-#         self.left = left
-#         self.right = right
 class Solution(object):
     def rangeSumBST(self, root, L, R):
-        """
-        :type root: TreeNode
-        :type L: int
-        :type R: int
-        :rtype: int
-        """
         
+             
+        sum=0
+        for i in root:
+            if i:
+                
+                if i>=low and i<=high:
+                    sum+=i
+        return sum
+
+a=Solution()
+a.rangeSumBST(root,low,high) 
+
+
