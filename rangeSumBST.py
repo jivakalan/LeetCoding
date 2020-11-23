@@ -42,19 +42,25 @@ high = 15
 class Solution(object):
     def rangeSumBST(self, root: TreeNode, L, R):
         return self.helper(root, L, R, 0)
+    
     def helper(self, node, left, right, total):
         if node is None:
             return total
+    
         if left <= node.val <= right:
-            
+        #if the node value is within the range then add it to the total
             total+= node.val
-            
+            #once you've added to the total then traverse down the tree via the left sub-tree and recursively add all node values within the range to the total
             total= self.helper(node.left, left,right,total)
-            
+            #once you've added to the total, then traverse down the tree via the right sub-tree and recursively add all node values within the range to the total    
             total= self.helper(node.right,left,right,total)
         
+        #what if the node value is not within the range, ex: 6 
+        # you know that if the node value is below the range then the best option is to traverse the tree down the right because in a BST, values ot the right are going to be greater than values to the left
         if node.val < left:
             total = self.helper(node.right,left,right,total)
+        #likewise, if the node value is not within the nrage, but is greater than the top of the range , i.e. 16 then the best course of actoin is to traverse the tree via the left  sub-tree because the structure of a BST guarantees that values to the left are less than values to the right
+        #at best you have values that are less than the top of the range, at worst null..and move on
         if node.val > right:
             total = self.helper(node.left,left,right,total)
         
@@ -69,3 +75,4 @@ a=Solution()
 a.rangeSumBST(root,low,high) 
 
 
+#next exercise --learn to create the BST you know what it is now:)
