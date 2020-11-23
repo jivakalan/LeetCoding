@@ -40,17 +40,31 @@ high = 15
 
 
 class Solution(object):
-    def rangeSumBST(self, root, L, R):
+    def rangeSumBST(self, root: TreeNode, L, R):
+        return self.helper(root, L, R, 0)
+    def helper(self, node, left, right, total):
+        if node is None:
+            return total
+        if left <= node.val <= right:
+            
+            total+= node.val
+            
+            total= self.helper(node.left, left,right,total)
+            
+            total= self.helper(node.right,left,right,total)
         
-             
-        sum=0
-        for i in root:
-            if i:
-                
-                if i>=low and i<=high:
-                    sum+=i
-        return sum
-
+        if node.val < left:
+            total = self.helper(node.right,left,right,total)
+        if node.val > right:
+            total = self.helper(node.left,left,right,total)
+        
+        return total
+            
+        
+   
+        
+   
+    
 a=Solution()
 a.rangeSumBST(root,low,high) 
 
