@@ -28,10 +28,6 @@ Created on Thu Nov 19 19:32:57 2020
 # =============================================================================
 
 
-10:14
-10:35
-
-10:36 youtube
 
 root=[10,5,15,3,7,None,18]
 
@@ -47,9 +43,9 @@ class Solution(object):
         if node is None:
             return total
     
-        if left <= node.val <= right:
+        if left <= node.data <= right:
         #if the node value is within the range then add it to the total
-            total+= node.val
+            total+= node.data
             #once you've added to the total then traverse down the tree via the left sub-tree and recursively add all node values within the range to the total
             total= self.helper(node.left, left,right,total)
             #once you've added to the total, then traverse down the tree via the right sub-tree and recursively add all node values within the range to the total    
@@ -57,11 +53,11 @@ class Solution(object):
         
         #what if the node value is not within the range, ex: 6 
         # you know that if the node value is below the range then the best option is to traverse the tree down the right because in a BST, values ot the right are going to be greater than values to the left
-        if node.val < left:
+        if node.data < left:
             total = self.helper(node.right,left,right,total)
         #likewise, if the node value is not within the nrage, but is greater than the top of the range , i.e. 16 then the best course of actoin is to traverse the tree via the left  sub-tree because the structure of a BST guarantees that values to the left are less than values to the right
         #at best you have values that are less than the top of the range, at worst null..and move on
-        if node.val > right:
+        if node.data > right:
             total = self.helper(node.left,left,right,total)
         
         return total
@@ -72,7 +68,57 @@ class Solution(object):
    
     
 a=Solution()
+
 a.rangeSumBST(root,low,high) 
 
 
 #next exercise --learn to create the BST you know what it is now:)
+class Node:
+    def __init__(self,data):
+        self.left = None
+        self.right = None
+        self.data = data
+
+    
+    def insert(self, data):
+        if self.data:
+        #if there is data in the head node    
+            if data < self.data:
+                #if the new value is less than the head node value
+                if self.left is None:
+                #if there is no value to the left of the head node, then insert it to the left 
+                    self.left = Node(data)
+                else:
+                    #if there is a value to the left of the head, then insert to the left of that left node and so on (recursive)
+                    self.left.insert(data)
+                    
+            if data > self.data:
+            #if the new value is greater htan the head node value
+                if self.right is None:
+                    #if there is nothing to the right, then the new value becomes the new right node
+                    self.right = Node(data)
+                else:
+                    #if ther is a value ot the right, then insert to the right of the right node
+                    self.right.insert(data)
+        else:
+            #if no head node
+            self.data= data
+            
+    def PrintTree(self):
+        if self.left:
+            self.left.PrintTree()
+        print( self.data),
+        if self.right:
+            self.right.PrintTree()
+         
+root = Node(10)
+root.insert(5)
+root.insert(15)
+root.insert(3)
+root.insert(7)
+root.insert(None)
+root.insert(18)
+
+
+root=[10,5,15,3,7,None,18]
+root.PrintTree()
