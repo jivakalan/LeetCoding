@@ -33,6 +33,12 @@ Created on Thu Nov 26 22:09:23 2020
 # Output: true
 # =============================================================================
 
+word1 = ["ab", "c"]
+word2 = ["a", "bc"]
+
+
+
+
 class Solution(object):
     def arrayStringsAreEqual(self, word1, word2):
         """
@@ -40,4 +46,20 @@ class Solution(object):
         :type word2: List[str]
         :rtype: bool
         """
+
+        str1 =''
+        for word in word1:
+            for letter in word:
+                str1 = str1+letter
         
+        str2 =''
+        for words in word2:
+            for letters in words:
+                str2 = str2+letters
+        
+        if str1 == str2 :
+            return True
+        else:
+            return False
+a=Solution()
+a.arrayStringsAreEqual(word1, word2)        
