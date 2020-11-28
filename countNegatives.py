@@ -17,7 +17,10 @@ Created on Fri Nov 27 09:54:41 2020
 
 Example 1:
 
-Input: grid = [[4,3,2,-1],[3,2,1,-1],[1,1,-1,-2],[-1,-1,-2,-3]]
+Input: grid = [[4,3,2,-1    ]
+              ,[3,2,1,-1   ]
+              ,[1,1,-1,-2  ]
+              ,[-1,-1,-2,-3]]
 Output: 8
 Explanation: There are 8 negatives number in the matrix.
 Example 2:
@@ -33,10 +36,24 @@ Example 4:
 Input: grid = [[-1]]
 Output: 1
 
+grid = [[-1]]
+grid = [[1,-1],[-1,-1]]
+
+
+
 class Solution(object):
     def countNegatives(self, grid):
         """
         :type grid: List[List[int]]
         :rtype: int
         """
-        
+                
+        cnt=0
+        for m in grid:
+            for n in m:
+                if n <0 :
+                    cnt+=1
+        return cnt
+
+a=Solution()
+a.countNegatives(grid)    
