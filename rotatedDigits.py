@@ -17,8 +17,32 @@
 
 N=857
 #8:32
-N=10
 
+
+valid =[0,1,8,2,5,6,9]
+
+rotate = [2,5,6,9]
+invalid =[3,4,7]
+x is a good number if, after rotation, we get a valid number that is different from X 
+
+230
+5(rotate),3(invalid),(0)valid, not valid! 
+596
+2-6,9 all rotated, valid
+536 
+2-invalid-9, invalid
+
+
+N=10
+cnt=0
+
+for number in range(0,N+1):
+    for digit in str(number):
+        if int(digit) in valid:
+            print(number, 'yes')
+        else:
+            break
+    cnt+=1
 
     
 
@@ -29,19 +53,7 @@ class Solution(object):
         :rtype: int
         """
         #NEW SOLUTION
-        dic={'0':'0','1':'1', '2':'5','3':'3', '4':'4', '5':'2','6':'9', '7':'7', '8':'8', '9':'6'}
 
-        cnt=0
-        for i in range(0,N+1):
-           # print(i)  
-            out=''      
-            for digit in str(i):
-             #   print(digit)
-                out = out + dic[digit]
-            
-            if int(out)!=i:
-                cnt+=1
-        return cnt
 
 a=Solution()
 a.rotatedDigits(N=857)
