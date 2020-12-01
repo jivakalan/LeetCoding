@@ -15,36 +15,25 @@
 # Note that 1 and 10 are not good numbers, since they remain unchanged after rotating.
 # =============================================================================
 
-N=857
+N=23
 #8:32
+valid = [0,1,8,2,5,6,9]
 
-
-valid =[0,1,8,2,5,6,9]
-
-rotate = [2,5,6,9]
-invalid =[3,4,7]
-x is a good number if, after rotation, we get a valid number that is different from X 
-
-230
-5(rotate),3(invalid),(0)valid, not valid! 
-596
-2-6,9 all rotated, valid
-536 
-2-invalid-9, invalid
-
-
-N=10
 cnt=0
+for i in range(0,N+1):
+    sub_cnt=0
+    for d in str(i):
+        
+        if int(d) == 2 or int(d) ==5 or int(d) ==6 or int(d)==9 and int(d) != 3:
+        #if int(d) in valid:
+            sub_cnt += 1   
+            
+            
+    if sub_cnt >=1: #==len([int(d) for d in str(i)]) :          
+        cnt+=1
+        print(i,sub_cnt)
 
-for number in range(0,N+1):
-    for digit in str(number):
-        if int(digit) in valid:
-            print(number, 'yes')
-        else:
-            break
-    cnt+=1
 
-    
 
 class Solution(object):
     def rotatedDigits(self, N):
@@ -52,9 +41,13 @@ class Solution(object):
         :type N: int
         :rtype: int
         """
-        #NEW SOLUTION
+        
 
 
 a=Solution()
-a.rotatedDigits(N=857)
+a.rotatedDigits(N=2)
 
+
+N=2
+for i in range(0,N+1):
+    print(i)
