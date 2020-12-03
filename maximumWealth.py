@@ -35,10 +35,17 @@ Created on Wed Dec  2 20:32:54 2020
 # Output: 17
 # =============================================================================
 
+
+
+
 class Solution(object):
     def maximumWealth(self, accounts):
         """
         :type accounts: List[List[int]]
         :rtype: int
         """
-        
+
+
+
+a=Solution()
+a.maximumWealth()        
