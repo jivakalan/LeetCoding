@@ -15,24 +15,9 @@
 # Note that 1 and 10 are not good numbers, since they remain unchanged after rotating.
 # =============================================================================
 
-N=23
-#8:32
-valid = [0,1,8,2,5,6,9]
 
-cnt=0
-for i in range(0,N+1):
-    sub_cnt=0
-    for d in str(i):
-        
-        if int(d) == 2 or int(d) ==5 or int(d) ==6 or int(d)==9 and int(d) != 3:
-        #if int(d) in valid:
-            sub_cnt += 1   
-            
-            
-    if sub_cnt >=1: #==len([int(d) for d in str(i)]) :          
-        cnt+=1
-        print(i,sub_cnt)
 
+N=857
 
 
 class Solution(object):
@@ -41,13 +26,37 @@ class Solution(object):
         :type N: int
         :rtype: int
         """
-        
+        selves = [0,1,8]
+        rotate = [2,5,6,9]
+        invalid =[3,4,7]
 
+        cnt=0
+        out=[]
+        for i in range(0,N+1):
+            
+            sub_cnt=0
+            for digit in str(i):
+                
+                if int(digit) in rotate :
+                    sub_cnt+=1
+                if int(digit) in invalid:
+                    sub_cnt = sub_cnt - 1
+                    #print(i, sub_cnt)
+            
+           
+            
+            if sub_cnt >= 1:
+                cnt+=1
+                #print(i,sub_cnt)
+                out.append(i)
+            
+        for num in out:
+            for digit in str(num):
+                
+                if int(digit) in invalid :
+                    cnt = cnt - 1        
+        return cnt
 
 a=Solution()
-a.rotatedDigits(N=2)
+a.rotatedDigits(N=10)
 
-
-N=2
-for i in range(0,N+1):
-    print(i)
