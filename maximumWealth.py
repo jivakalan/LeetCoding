@@ -36,8 +36,6 @@ Created on Wed Dec  2 20:32:54 2020
 # =============================================================================
 
 
-
-
 class Solution(object):
     def maximumWealth(self, accounts):
         """
@@ -45,7 +43,19 @@ class Solution(object):
         :rtype: int
         """
 
+        
+        outs = []
+        for person in accounts:
+            out = 0
+            for account in person:
+                out += account
+            
+            outs.append(out)
+        
+        return max(outs)
 
 
 a=Solution()
-a.maximumWealth()        
+a.maximumWealth(accounts = [[1,2,3],[3,2,1]]) 
+a.maximumWealth(accounts = [[1,5],[7,3],[3,5]])
+a.maximumWealth(accounts = [[2,8,7],[7,1,3],[1,9,5]])       
