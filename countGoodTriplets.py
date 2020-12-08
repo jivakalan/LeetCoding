@@ -44,22 +44,21 @@ a = 7
 b = 2 
 c = 3
 
-cnt=0
-for i in arr:
-    for j in arr:
-            
-        for k in arr :
-            
-            if i - j <= a and j - k <= b and i - k <= c:
-                #print(i,j,k)
-                cnt+=1
-            
-
 
 class Solution:
-    def countGoodTriplets(self, arr,a,b,c):
+    def countGoodTriplets(self,arr,a,b,c):
         
-
-a=Solution()
-a.countGoodTriplets(arry,a,b,c)
+           
+        cnt=0
+        for i in range(0, len(arr)):
+            for j in range(0, len(arr)):
+                for k in range(0, len(arr)) :
+                    if i<j<k and abs(arr[i] - arr[j]) <= a and abs(arr[j] - arr[k]) <= b and abs(arr[i] - arr[k]) <= c:
+                      #  print(arr[i],arr[j],arr[k])
+                        cnt+=1
+                    
+        return cnt
+    
+s=Solution()
+s.countGoodTriplets(arr = [1,1,2,2,3], a = 0, b = 0, c = 1)
         
