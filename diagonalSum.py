@@ -26,8 +26,16 @@ Created on Fri Dec 11 01:24:22 2020
 # Explanation: Diagonals sum: 1 + 5 + 9 + 3 + 7 = 25
 # Notice that element mat[1][1] = 5 is counted only once.
 # =============================================================================
+mat = [[1,2,3],
+       [4,5,6],
+       [7,8,9]]
 
+len =3
+ht = 3
+mdpt = (1.5,1.5)
 
+actual mdpt (1,1)
+        
 class Solution:
     def diagonalSum(self, mat: List[List[int]]) -> int:
         
