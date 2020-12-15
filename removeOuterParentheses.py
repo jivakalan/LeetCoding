@@ -41,21 +41,31 @@ Return S after removing the outermost parentheses of every primitive string in t
 # 
 # =============================================================================
 
- no way to split it into S = A+B where A and B valid paranthesis strings
-     examples of valid paranthesis strings
-     empty
-     "" 
-     or 
-     "()"  -- "(" +A+ ")"
-     "(())()"  A + B ? 
-     "(()(()))"  
-       
-     
-     
-nums = "(()())(())(()(()))"
-       0,5 ---6-9,
-       
-nums ="(())"
+
+init =  "(()())(())"
+decomposition = "(()())" + "(())".
+removeouter=  "()()" + "()" = "()()()".
+
+(()())
+121210
+
+#decompose
+out = []
+cnt=0
+for i in range(0,len(init)):
+    #print(init[i],out)
+    if init[i]=='(':
+        cnt+=1
+        out.append(cnt) 
+        print(init[i],cnt)
+    if init[i]==')':
+        cnt = cnt - 1
+        #print(cnt)
+        out.append(cnt)
+        print(init[i],cnt)
+
+for i in out:
+    if i == 1
 
 ##decompose
 cnt=0
@@ -79,11 +89,10 @@ for i in out:
     if i ==")":
         out= out.replace(i,'')
         
-        
-nums = "(()())(())"
-nums = "()()"
+       
 
 out=''
+
 for i in range(0,len(Input)):
     if i+1 < len(Input):
         
