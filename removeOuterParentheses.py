@@ -30,7 +30,9 @@ Return S after removing the outermost parentheses of every primitive string in t
 # Output: "()()()()(())"
 # Explanation: 
 # The input string is "(()())(())(()(()))", with primitive decomposition "(()())" + "(())" + "(()(()))".
-# After removing outer parentheses of each part, this is "()()" + "()" + "()(())" = "()()()()(())".
+# After removing outer parentheses of each part, this is "()()" + "()" + "()(())" = 
+#"()()()()(())".
+# ()()()()(())'
 # Example 3:
 # 
 # Input= "()()"
@@ -46,65 +48,28 @@ init =  "(()())(())"
 decomposition = "(()())" + "(())".
 removeouter=  "()()" + "()" = "()()()".
 
-init ='(()())' 
-(())
-121210 1210
-
-
-for i in range(0,len(init)):
-    if i+1 < len(init):
-        
-        if init[i]=='(' and init[i+1] != ')':
-        #FIND IT'S CLOSING PARTNER IF IT IS NOT RIGHT NEXT TO IT 
-            #iterate through i+2...to end
-            for nxet in range(i+1,len(init)):
-                if init[nxet] ==')' and init[nxet-1]==')':
-                    init=init[i+1:]
-                    init=init[:nxet-1]
-
-                    
-
-
-        
-    cnt = 0
-    for n in range(0,len(init)):
-        if n+1 < len(init):
-            
-            
-
-
-##decompose
-cnt=0
-for i in range(0,len(nums)) :
-    
-    if nums[i]=='(':
-        cnt+=1
-        start = i
-        #print(i,cnt)
-    if nums[i]==')':
-        cnt= cnt-1
-        #print(i,cnt)
-    if cnt ==0:
-        out = nums[start:i]
-        print(start,i)
-
-##remove outer paranthesis
-for i in out:
-    if i=="(":
-        out= out.replace(i,'')
-    if i ==")":
-        out= out.replace(i,'')
-        
-       
-
-out=''
-
-for i in range(0,len(Input)):
-    if i+1 < len(Input):
-        
-        if Input[i]=='(' and Input[i+1]==')':
-            out=out+'()'
+init="(()())(())(()(()))"
+decomp = (()())  + (())  + (()(()))
+remove outer = () () + () +  ()(())
 
 class Solution:
-    def removeOuterParentheses(self, S: str) -> str:
-       
+    def removeOuterParentheses(self, init):
+       #decompose!             
+        cnt =0   
+        startidx=0
+        out=''      
+        for idx,char in enumerate(init):
+            print(idx,char)
+            if char =='(':
+                cnt+=1
+            if char ==')':
+                cnt=cnt-1
+            if cnt == 0:
+                print(cnt)
+                print(startidx,idx)
+                out= out + init[startidx+1:idx]
+                startidx=idx+1
+        return out
+
+a=Solution()
+a.removeOuterParentheses(init="(()())(())(()(()))")
