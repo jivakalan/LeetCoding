@@ -46,26 +46,32 @@ init =  "(()())(())"
 decomposition = "(()())" + "(())".
 removeouter=  "()()" + "()" = "()()()".
 
-(()())
-121210
+init ='(()())' 
+(())
+121210 1210
 
-#decompose
-out = []
-cnt=0
+
 for i in range(0,len(init)):
-    #print(init[i],out)
-    if init[i]=='(':
-        cnt+=1
-        out.append(cnt) 
-        print(init[i],cnt)
-    if init[i]==')':
-        cnt = cnt - 1
-        #print(cnt)
-        out.append(cnt)
-        print(init[i],cnt)
+    if i+1 < len(init):
+        
+        if init[i]=='(' and init[i+1] != ')':
+        #FIND IT'S CLOSING PARTNER IF IT IS NOT RIGHT NEXT TO IT 
+            #iterate through i+2...to end
+            for nxet in range(i+1,len(init)):
+                if init[nxet] ==')' and init[nxet-1]==')':
+                    init=init[i+1:]
+                    init=init[:nxet-1]
 
-for i in out:
-    if i == 1
+                    
+
+
+        
+    cnt = 0
+    for n in range(0,len(init)):
+        if n+1 < len(init):
+            
+            
+
 
 ##decompose
 cnt=0
