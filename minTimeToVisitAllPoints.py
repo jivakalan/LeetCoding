@@ -5,6 +5,7 @@ Created on Tue Dec  8 20:01:49 2020
 @author: kalan
 """
 
+##testing commmit
 # =============================================================================
 # 1266. Minimum Time Visiting All Points
 # 
