@@ -32,83 +32,35 @@ Created on Tue Dec  8 20:01:49 2020
 # =============================================================================
 
 points = [[1,1],[3,4],[-1,0]]
+
 points = [[3,2],[-2,2]]
 
-# =============================================================================
-# cnt=0
-# for i in range(0,len(points)):
-#     if i+1 < len(points):
-#         
-#         init = points[i]
-#         dest = points[i+1]
-# 
-# 
-#         while dest[0]-init[0] < dest[1]-init[1]:
-#                
-#             #if x < y then move vertically
-#             #move vertically
-#             init[1] =  init[1]+1
-#             cnt+=1
-#             #have to move verticaly or horizontally
-#         while dest[0]-init[0] > dest[1]-init[1]:
-#             init[0] =  init[0]+1
-#             cnt+=1
-#         
-#         while init != dest:
-#             if dest[0]<0:
-#                 init = [x-1 for x in init]
-#             else:
-#                 init = [x+1 for x in init]
-#             cnt+=1
-# return cnt
-# =============================================================================
-
-
-
 cnt=0
+for i in range(0,len(points)):
+    if i+1 < len(points):
+        
+        init = points[i]
+        dest = points[i+1]
+        
+        
+        while dest[0]-init[0] < dest[1]-init[1]:
+               
+            #if x < y then move vertically
+            #move vertically
+            init[1] =  init[1]+1
+            cnt+=1
+            #have to move verticaly or horizontally
+        while dest[0]-init[0] > dest[1]-init[1]:
+            init[0] =  init[0]+1
+            cnt+=1
+        
+        while init != dest:
+            if dest[0]<0:
+                init = [x-1 for x in init]
+            else:
+                init = [x+1 for x in init]
+            cnt+=1
 
-init = points[0]
-dest = points[1]
-
-while dest[0]-init[0] < dest[1]-init[1]:
-       
-    #if x < y then move vertically
-    #move vertically
-    init[1] =  init[1]+1
-    cnt+=1
-    #have to move verticaly or horizontally
-while dest[0]-init[0] > dest[1]-init[1]:
-    init[0] =  init[0]+1
-    cnt+=1
-
-while init != dest:
-    if dest[0]<0:
-        init = [x-1 for x in init]
-    else:
-        init = [x+1 for x in init]
-    cnt+=1    
-
-
-init = points[1]
-dest = points[2]
-
-while dest[0]-init[0] < dest[1]-init[1]:
-       
-    #if x < y then move vertically
-    #move vertically
-    init[1] =  init[1]+1
-    cnt+=1
-    #have to move verticaly or horizontally
-while dest[0]-init[0] > dest[1]-init[1]:
-    init[0] =  init[0]+1
-    cnt+=1
-
-while init != dest:
-    if dest[0]<0:
-        init = [x-1 for x in init]
-    else:
-        init = [x+1 for x in init]
-    cnt+=1    
 
 
 
@@ -118,7 +70,7 @@ while init != dest:
 
     
 class Solution:
-    def minTimeToVisitAllPoints(self, points: List[List[int]]) -> int:
+    def minTimeToVisitAllPoints(self, points):
         
         
         cnt=0
@@ -151,4 +103,4 @@ class Solution:
 
 
 a=Solution()
-a.minTimeToVisitAllPoints()
+a.minTimeToVisitAllPoints(points)
