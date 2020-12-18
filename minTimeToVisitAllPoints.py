@@ -38,43 +38,6 @@ points = [[1,1],[3,4],[-1,0]]
  
 points = [[838,-127] ,[773,-917]]
 
-
-cnt=0
-for i in range(0,len(points)):
-    if i+1 < len(points):
-        
-        init = points[i]
-        dest = points[i+1]
-  
-        while  dest[0]-init[0] != dest[1]-init[1]:
-            if abs(dest[1]-init[1]) > abs(dest[0]-init[0]) :
-                if dest[1] < init[1]:
-                    init[1]=init[1]-1
-                    cnt+=1    
-                else:
-                    init[1]=init[1]+1
-                    cnt+=1
-                    print(init)
-                
-                
-            else:
-                if dest[0]<init[0]:
-                    
-                    init[0]=init[0]-1
-                    cnt+=1
-                if dest[0]>init[0]:
-                    init[0]=init[0]+1
-                    cnt+=1
-        while init != dest :
-            
-            if dest[0]<init[0]:
-                init = [x-1 for x in init]
-            else:
-                init = [x+1 for x in init]
-            cnt+=1
-            
-            
-            
             
 
 
