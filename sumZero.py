@@ -18,26 +18,13 @@ Output: [-7,-1,1,3,4]
 Explanation: These arrays also are accepted [-5,-1,1,2,3] , [-3,-1,2,-2,4].
 Example 2:
 
+    
 Input: n = 3
 Output: [-1,0,1]
 Example 3:
 
 Input: n = 1
 Output: [0]
-
-n=0===0
-n = 1
-[0]
-n = 2
-[-1,1]
-n=4
-[-3,-1,1,3]
-
-n = 3
-[-1,0,1]
-n=5
-[-4,-1,0,2,3]
-
 
 
 if n % 2 == 0:
