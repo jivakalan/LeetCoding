@@ -23,11 +23,23 @@ Created on Fri Dec 25 20:26:58 2020
 # =============================================================================
 
 s= "IDID"
+If S[i] == "I", then A[i] < A[i+1]
+If S[i] == "D", then A[i] > A[i+1]
+
+0,3,2,
 
 out=[]
 for i in range(0,len(s)+1):
-    out.append(i)
+    if i< len(s):
+        if s[i] == 'I' :
+            out.append(i)
+        else :
+            out.append(i+2)
+    if i == len(s):
+        out.append(i)
 
 class Solution:
     def diStringMatch(self, S):
+        
+        
         
