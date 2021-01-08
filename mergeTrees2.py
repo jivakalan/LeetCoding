@@ -43,4 +43,3 @@ Note: The merging process must start from the root nodes of both trees.
 class Solution:
     def mergeTrees(self, t1: TreeNode, t2: TreeNode) -> TreeNode:
 --        #do stuffd
-#dn
