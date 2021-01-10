@@ -29,7 +29,8 @@ Created on Mon Dec 28 22:22:29 2020
 # 	  / \   \ 
 # 	 5   4   7
 # =============================================================================
- 
+1:58
+
 
 Note: The merging process must start from the root nodes of both trees.
 
@@ -41,5 +42,28 @@ Note: The merging process must start from the root nodes of both trees.
 #         self.left = left
 #         self.right = right
 class Solution:
-    def mergeTrees(self, t1: TreeNode, t2: TreeNode) -> TreeNode:
---        #do stuffd
+    def mergeTrees(self, tree1, tree2):
+        if tree1 is None:
+            return tree2
+        if tree2 is None:
+            return tree1 
+        
+        tree1.val += tree2.val
+        tree1.left = self.mergeTrees(tree1.left, tree2.left)
+        tree1.right = self.mergeTrees(tree1.right, tree2.right)
+        
+        return tree1
+        
+       
+            
+            
+        
+
+
+   
+        
+   
+    
+a=Solution()
+
+a.mergeTrees(tree1,tree2)
