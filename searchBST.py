@@ -5,13 +5,6 @@ Created on Wed Jan 13 23:18:22 2021
 @author: kalan
 """
 
-# Definition for a binary tree node.
-# class TreeNode:
-#     def __init__(self, val=0, left=None, right=None):
-#         self.val = val
-#         self.left = left
-#         self.right = right
-
 
 class Node:
 
@@ -54,20 +47,26 @@ root.insert(1)
 root.insert(3)
 
 root.val
+root.PrintTree()
 
 class Solution:
     def searchBST(self, root,val):
         
+        
+        
+        
         if root.val == val:
-            return root
+            print(root.val)
+        
         
         if root.val > val:
             self.searchBST(root.left, val)
         
         if root.val < val:
             self.searchBST(root.right, val)
+        
             
         
 a=Solution()
 val=2
-a.searchBST(root, val)        
+a.searchBST(root, 4)        
