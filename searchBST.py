@@ -59,25 +59,24 @@ class Solution:
             
     def searchBST(self, root,val):
         
-                
+        if root == None:
+            return None
+        
         
         
         if root.val == val:
-            print(root.val.PrintTree())
-        #else:
-         #   return None
+            #print(root.val.PrintTree())
+            return root
+
         
         if root.val > val:
-            self.searchBST(root.left, val)
+            return self.searchBST(root.left, val)
             
         
         if root.val < val:
-            self.searchBST(root.right, val)
-        
- #       else:
-  #          return None
-   def 
+            return self.searchBST(root.right, val)
+       
         
 a=Solution()
 
-out = a.searchBST(root, 4)        
+out = a.searchBST(root, 2)        
