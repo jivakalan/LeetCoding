@@ -50,23 +50,34 @@ root.val
 root.PrintTree()
 
 class Solution:
+    def PrintTree(self):
+        if self.left:
+            self.left.PrintTree()
+        print( self.val),
+        if self.right:
+            self.right.PrintTree()
+            
     def searchBST(self, root,val):
         
-        
+                
         
         
         if root.val == val:
-            print(root.val)
-        
+            print(root.val.PrintTree())
+        #else:
+         #   return None
         
         if root.val > val:
             self.searchBST(root.left, val)
+            
         
         if root.val < val:
             self.searchBST(root.right, val)
         
-            
+ #       else:
+  #          return None
+   def 
         
 a=Solution()
-val=2
-a.searchBST(root, 4)        
+
+out = a.searchBST(root, 4)        
