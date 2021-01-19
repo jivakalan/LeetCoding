@@ -64,15 +64,21 @@ class Solution:
     
     def increasingBST(self, root):
         
+        #visit left-sub-tree
+        if root is None:
+            return None
+        
         if root.left:
            
             self.increasingBST(root.left)
             out.append(root.left.val)
-            
+        
+        
+       
         if root.right:
             self.increasingBST(root.right)
             
-            out.append(root.right.val)
+            #out.append(root.right.val)
             
         return out
        
