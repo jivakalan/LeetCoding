@@ -63,29 +63,28 @@ root.PrintTree()
 class Solution:
     
     def increasingBST(self, root):
-        
-        #visit left-sub-tree
+        out=[]
         if root is None:
             return None
         
         if root.left:
            
             self.increasingBST(root.left)
-            out.append(root.left.val)
+        out.append(root.val),
         
         
        
         if root.right:
             self.increasingBST(root.right)
-            #
-            
-            #out.append(root.right.val)
             
         return out
        
     
 
 a=Solution()
+a.increasingBST(root) 
 
-out =[]
-a.increasingBST(root)     
+
+
+
+#left, left ,left --if last left, then work your way up - if right, exists, then node and right,     
