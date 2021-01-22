@@ -67,7 +67,7 @@ class Solution:
         if root is None:
             return None
         
-        if root.left:
+        if root.left:d
            
             self.increasingBST(root.left)
         out.append(root.val),
