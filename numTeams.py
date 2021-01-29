@@ -45,7 +45,7 @@ arr=rating
 memoGreater = {}
         
 memoLesser = {}
-length = len(arr)
+length = len(arr) ##an
 
 for i in range(length):
     memoGreater[i] = []
