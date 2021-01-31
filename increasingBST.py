@@ -85,6 +85,3 @@ a=Solution()
 a.increasingBST(root) 
 
 
-
-
-#left, left ,left --if last left, then work your way up - if right, exists, then node and right,     

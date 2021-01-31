@@ -91,22 +91,28 @@ rating =[922,108,1029,129,1215,2987,1505,1503,2125,2000,677,838,2560,2540,2251,1
 dic_greater = {}
 dic_less = {}
 
+length=len(rating)
+tic=time.perf_counter()
 
-for i in range(0, len(rating)):
+for i in range(0, length):
     
-    dic_greater[i]=[]
-    dic_less[i]=[]
+    dic_greater[rating[i]]=[]
+    dic_less[rating[i]]=[]
     
-    for j in range(i+1, len(rating)):
+    for j in range(i+1, length):
         
-        if rating[i]>rating[j]:
-            dic_greater[i].append(j)
-        if rating[i]<rating[j]:
-            dic_less[i].append(j)
+        for k in range(j+1,length):
+            
+            if rating[i]>rating[j]>rating[k] and  0<=i<j<k<length:
+                dic_greater[rating[i]].append(rating[j])
+                
+                dic_greater[rating[i]].append(rating[k])
+                
+            if rating[i]<rating[j]<rating[k]and  0<=i<j<k<length:
+                dic_less[rating[i]].append(rating[j])
 
-
-
-
+toc=time.perf_counter()
+print(toc-tic)
 
 
 
