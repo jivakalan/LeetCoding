@@ -56,8 +56,6 @@ root.insert(1)
 
 
 
-
-
 class Solution:
     
     def increasingBST(self, root):
@@ -66,8 +64,6 @@ class Solution:
         def inOrder(root,res):
             if not root:
                 return None
-            #inorder Traversal
-          #  if root.left:
 
             inOrder(root.left, res)
             res.append(root.data)
@@ -78,7 +74,14 @@ class Solution:
         #out = Node(inOrder(root,[]))
         res= inOrder(root,[])
         
-        return res
-            
+        out = Node(res[0])
+
+        
+        return out
+    
 a=Solution()
 out= a.increasingBST(root)
+
+
+#final 
+
