@@ -51,7 +51,6 @@ class Node:
 root = Node(5)
 root.insert(3)
 root.insert(7)
-root.insert(1)
 
 
 
@@ -74,10 +73,10 @@ class Solution:
         #out = Node(inOrder(root,[]))
         res= inOrder(root,[])
         
-        out = Node(res[0])
-
+        #out = Node(res[0])
         
-        return out
+        
+        return res
     
 a=Solution()
 out= a.increasingBST(root)
