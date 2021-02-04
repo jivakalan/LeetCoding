@@ -70,13 +70,15 @@ class Solution:
             
             return res
         
-        #out = Node(inOrder(root,[]))
         res= inOrder(root,[])
         
-        #out = Node(res[0])
+        current = out = Node(res[0])
         
+        for i in range(1,len(res)):
+            current.right = Node(res[i])
+            current = current.right
         
-        return res
+        return out
     
 a=Solution()
 out= a.increasingBST(root)

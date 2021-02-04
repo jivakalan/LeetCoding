@@ -52,26 +52,24 @@ Created on Sat Jan  9 13:28:53 2021
 
 class Solution:
     def countVowelStrings(self, n):
+           
+        current = [1] * 5
+        for count in range(n-1):
+            current = [sum(current[i:]) for i in range(5)]
+            print(current)
+        return sum(current)
         
-        
-        from itertools import permutations
-        
-        #for n = 3
-        vowels =['a','e','i','o','u']
-        
-        perm = permutations(vowels,n)
-        out=[]
-        for i in list(perm):
-            #print(sorted(i) == list(i))
-            if sorted(i) == list(i):
-                
-                out.append(i)
-        
-        if n>1:
-            for i in vowels:
-                out.append(i+i)
-            
-        return len(out)
     
 a=Solution()
-a.countVowelStrings(n=33)
+a.countVowelStrings(n=4)
+
+n=1
+           
+current = [1] * 5
+for count in range(n-1):
+    
+    current = [sum(current[i:]) for i in range(5)]
+    print(current)
+sum(current)
+
+    
