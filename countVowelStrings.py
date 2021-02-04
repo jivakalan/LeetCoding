@@ -50,26 +50,29 @@ Created on Sat Jan  9 13:28:53 2021
 
 
 
+    
 class Solution:
     def countVowelStrings(self, n):
-           
-        current = [1] * 5
-        for count in range(n-1):
-            current = [sum(current[i:]) for i in range(5)]
-            print(current)
-        return sum(current)
+        current = [1]*5
+            
+            
+        #n=2
+        sumz=0
+        new=current
+        cnt=0
         
+        while cnt < n-1:
+            
+            
+            for i in range(0,len(current)):
+                
+                sumz+= sum(current[i:])
+                new[i] =sum(current[i:])
+                
+                #print(sum(current[i:]))
+            cnt+=1
+        return sum(current)
     
+
 a=Solution()
-a.countVowelStrings(n=4)
-
-n=1
-           
-current = [1] * 5
-for count in range(n-1):
-    
-    current = [sum(current[i:]) for i in range(5)]
-    print(current)
-sum(current)
-
-    
+a.countVowelStrings(n=33)
