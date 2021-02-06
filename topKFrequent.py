@@ -22,6 +22,35 @@
 # You can return the answer in any order.
 # =============================================================================
 
+
+
+nums = [2,2,3,1,1,1] 
+k = 2
+nums = [1]
+k = 1
+
 class Solution:
-    def topKFrequent(self, nums: List[int], k: int) -> List[int]:
+    def topKFrequent(self, nums,k):
         
+        dic ={}
+        
+        for i in nums:
+            if i in dic:
+                dic[i]+=1
+            else:
+                
+                dic[i] = 1
+        
+        out=[]
+        for w in sorted(dic, key=dic.get, reverse= True):      
+            out.append(w)
+        nout = out[0:k]
+        return nout
+
+dic.get
+
+
+a=Solution()
+a.topKFrequent(nums,k)
+
+
