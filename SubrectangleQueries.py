@@ -50,15 +50,15 @@ for row in rectangle:
 
 row1=1
 row2=2
+#######
 col1=0
 col2=1
+
 newValue=7
 
-
-for x in range(row1, row2+1):
-    for y in range(col1, col2+1):
-        print(x,y)
-        rectangle[x][y] = newValue
+for i in range(row2-row1+1):
+    for j in range(col2-col1+1):
+        rectangle[row1+i][col1+j] = newValue
 
 #        return self.rectangle 
 
