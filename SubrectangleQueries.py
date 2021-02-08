@@ -38,29 +38,10 @@ Created on Fri Feb  5 22:49:33 2021
 # 0 <= row < rows
 # 0 <= col < cols
 # =============================================================================
-#import numpy as np
-
-#rectangle = np.random.rand(5,3)
-
+#still not sure how to creat teh right data structure? 
 rectangle = [[0]*3]*5
 
-    
-for row in rectangle:
-    print(row)
 
-row1=1
-row2=2
-#######
-col1=0
-col2=1
-
-newValue=7
-
-for i in range(row2-row1+1):
-    for j in range(col2-col1+1):
-        rectangle[row1+i][col1+j] = newValue
-
-#        return self.rectangle 
 
 
 class SubrectangleQueries:
@@ -73,7 +54,7 @@ class SubrectangleQueries:
     def updateSubrectangle(self, row1: int, col1: int, row2: int, col2: int, newValue: int) -> None:
         for x in range(row1, row2+1):
             for y in range(col1, col2+1):
-                self.rectangle[x-1,y-1] = newValue
+                self.rectangle[x][y] = newValue
         return self.rectangle 
 
     def getValue(self, row: int, col: int) -> int:
