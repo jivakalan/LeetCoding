@@ -44,8 +44,7 @@ go
 out = []
 ###
 
-
-
+###
 class Solution:
     def groupThePeople(self, groupSizes):
         
