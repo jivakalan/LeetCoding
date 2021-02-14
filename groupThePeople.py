@@ -17,37 +17,54 @@
 # 
 # reutn a list of groups that each perosn i is in a group of s
 # 
+# Example 1:
+
+# =============================================================================
+# Input: groupSizes = [3,3,3,3,3,1,3]
+# Output: [[5],[0,1,2],[3,4,6]]
+# Explanation: 
 # 
-### =============================================================================
-Example 1:
+# The second group is [0,1,2]. The size is 3, and groupSizes[0] = groupSizes[1] = groupSizes[2] = 3.
+# The third group is [3,4,6]. The size is 3, and groupSizes[3] = groupSizes[4] = groupSizes[6] = 3.
+# Other possible solutions are [[2,1,6],[5],[0,4,3]] and [[5],[0,6,2],[4,3,1]].
+# Example 2:
+# =============================================================================
+#=============================================================================
 
-Input: groupSizes = [3,3,3,3,3,1,3]
-Output: [[5],[0,1,2],[3,4,6]]
-Explanation: 
-The first group is [5]. The size is 1, and groupSizes[5] = 1.
-The second group is [0,1,2]. The size is 3, and groupSizes[0] = groupSizes[1] = groupSizes[2] = 3.
-The third group is [3,4,6]. The size is 3, and groupSizes[3] = groupSizes[4] = groupSizes[6] = 3.
-Other possible solutions are [[2,1,6],[5],[0,4,3]] and [[5],[0,6,2],[4,3,1]].
-Example 2:
 
-Input: groupSizes = [2,1,3,3,3,2]
-Output: [[1],[0,5],[2,3,4]]
- 
 
+                                            
 
 groupSizes = [3,3,3,3,3,1,3]
 
+dic={}
 for i in range(len(groupSizes)):
-    print('person', i+1, 'is in a group of size', groupSizes[i])
-    
-go
-out = []
-###
+    print('person', i, 'is in a group of size', groupSizes[i])
+    dic[i]=groupSizes[i]
 
-###
+out=[]
+for key in dic:
+    intermed =[]
+    value = dic[key]
+    if len(intermed) < dic[key]:
+        #print(len(intermed),dic[key],value)
+        for key in dic:
+            
+            if dic[key]==value:
+                while len(intermed) <dic[key]:
+                    intermed.append(key)
+                    print(len(intermed))
+
+    
+        
+
+    
+
 class Solution:
     def groupThePeople(self, groupSizes):
         
         #List[int]) -> List[List[int]]:
+
+
         
         
