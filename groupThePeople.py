@@ -33,38 +33,46 @@
 
 
 
-                                            
 
-groupSizes = [3,3,3,3,3,1,3]
 
-dic={}
-for i in range(len(groupSizes)):
-    print('person', i, 'is in a group of size', groupSizes[i])
-    dic[i]=groupSizes[i]
-
-out=[]
-for key in dic:
-    intermed =[]
-    value = dic[key]
-    if len(intermed) < dic[key]:
-        #print(len(intermed),dic[key],value)
-        for key in dic:
-            
-            if dic[key]==value:
-                while len(intermed) <dic[key]:
-                    intermed.append(key)
-                    print(len(intermed))
-
-    
-        
-
-    
 
 class Solution:
     def groupThePeople(self, groupSizes):
         
+        
         #List[int]) -> List[List[int]]:
 
+        dic={}
+        for i in range(len(groupSizes)):
+            if groupSizes[i] not in dic:
+                dic[groupSizes[i]] = [i]
+            else:
+                dic[groupSizes[i]].append(i)
+        
+        result = []    
+        
+        for key in dic:
+            length_of_list_in_dic = len(dic[key])
+            #if the the length of list (value) is > key
+            if length_of_list_in_dic > key:
+                #walk through the array, in group sized incremements  and place that sublist in result set 
+                start =  0
+                while start < length_of_list_in_dic:
+                    end = start+key
+                    result.append(dic[key][start:end])
+                    print(start, end)
+                    start +=key 
+            else:
+            #otherwise just place the list into the resultset
+                result.append(dic[key])
+        return result 
+    
+a=Solution()
 
+result = a.groupThePeople(groupSizes = [3,3,3,3,3,1,3])
         
-        
+result = a.groupThePeople(groupSizes = [2,1,3,3,3,2])
+
+result = a.groupThePeople(groupSizes = [3,4,3,3,4,4,3,4,3,3])
+
+result= a.groupThePeople(groupSizes= [2,2,1,1,1,1,1,1])
