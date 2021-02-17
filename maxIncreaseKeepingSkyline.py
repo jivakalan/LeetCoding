@@ -39,52 +39,42 @@ Created on Sun Feb 14 12:32:44 2021
 # 
 # 
 # =============================================================================
-grid = [[3,0,8,4],[2,4,5,7],[9,2,6,3],[0,3,1,0]]
 
-cnt=0
 
-for x in range(0,len(grid)):
-    row_max = max(grid[x])
-    x = 2
-    
-    print(x)
-    print(grid[:x])
-
-    print(grid[:x]+grid[x+1:])
-    
-    grid[~x]
-    for y in range(0,len(grid[x])):
-        if grid[x][y] != row_max:
+##solved the testcase...but time limit exceeded
             
-            while grid[x][y] < row_max-1:
-            
-                
-                
-                grid[all elements except wherelement ==row_max] +=1
-                
-        else:
-            continue
-
-            
-        
         
 class Solution:
     def maxIncreaseKeepingSkyline(self, grid): #: List[List[int]]) -> int:
+        
+        row_max=[]
+        for row in grid:    
+            row_max.append(max(row))
+        
+        tlist = list(zip(*grid))
+        tlist[1]
+        col_max = []
+        for column in tlist:
+            col_max.append(max(column))
+                    
+        grid = [[3,0,8,4],[2,4,5,7],[9,2,6,3],[0,3,1,0]]
+        
+        
         cnt=0
         for x in range(0,len(grid)):
-            row_max = max(grid[x])
+            #print(x)
+            for y in range(0,len(grid)):
+               # print( grid[x][y] ,  col_max[y]  ,  row_max[x]   )
+                      
+                if grid[x][y] < col_max[y] and grid[x][y]< row_max[x]:
+                    cnt+= min(col_max[y],row_max[x])-grid[x][y]
+                    grid[x][y] = min(col_max[y],row_max[x])
+               
 
-            for y in range(0,len(grid[x])):
-
-                while grid[x][y] < row_max:
-                    grid[x][y]+=1
-                    cnt+=1
-                else:
-                    continue
         return cnt
         
         
-a=Solution()
+a=Solution()    
 a.maxIncreaseKeepingSkyline(grid=[[3,0,8,4],[2,4,5,7],[9,2,6,3],[0,3,1,0]])
         
         
