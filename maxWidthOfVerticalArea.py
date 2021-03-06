@@ -38,6 +38,27 @@ Created on Wed Feb 17 19:50:11 2021
 # 0 <= xi, yi <= 109
 # =============================================================================
 
+
+points = [[8,7],[9,9],[7,4],[9,7]]
+points = [[3,1],[9,0],[1,0],[1,4],[5,3],[8,8]]
+
+
+
 class Solution:
-    def maxWidthOfVerticalArea(self, points: List[List[int]]) -> int:
+    def maxWidthOfVerticalArea(self, points):
+                
+        points.sort()
+        out = []
+        for x in range(len(points)):
         
+            if x+1 < len(points):
+                
+               # print(points[x+1][0]-points[x][0] )
+                out.append(points[x+1][0]-points[x][0])
+                
+        
+        return max(out)
+
+a=Solution()
+a.maxWidthOfVerticalArea(points = [[8,7],[9,9],[7,4],[9,7]])
+a.maxWidthOfVerticalArea(points = [[3,1],[9,0],[1,0],[1,4],[5,3],[8,8]])
