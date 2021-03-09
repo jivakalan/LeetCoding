@@ -20,85 +20,69 @@ Created on Wed Feb 17 19:51:44 2021
 # =============================================================================
 
 
-# Definition for a bi
 
-class Node:
-    def __init__(self, data):
-        self.left = None
-        self.right = None
-        self.val = data
-
-# Insert method to create nodes
-    def insert(self, data):
-
-        
-
-root = Node(1)
-root.insert(2)
-root.insert(3)
-root.insert(4)
-root.insert(5)
-root.insert(6)
-root.insert(7)
-root.insert(8)
-
-def deepestleaf(root):
-    out=[]
-    if root.left:
-
-        deepestleaf(root.left)
-        out=root.left.val
-    #print(out, root.left.val)
-        
-    return out  
-out1 = deepestleaf(root)    
-def deepest_rleaf(root):
-    out=[]
-    if root.right:
-
-        deepestleaf(root.right)
-        out=root.right.val
-  
-    return out  
-out2 = deepest_rleaf(root)  
-
-out = out1+out2
-
-
-
-
-
+# Definition for a binary tree node.
 class TreeNode:
     def __init__(self, val=0, left=None, right=None):
         self.val = val
         self.left = left
         self.right = right
-           
+        #why does this self.left and slef.right exist? shoudl they not be Nodes themselves...
+        
+    def insert(self, newval):
+        if newval < self.val:
+            if self.left is None:
+                self.left = TreeNode(newval)
+            else:
+                self.left.insert(newval)
+        if newval > self.val:
+            if self.right is None:
+                self.right = TreeNode(newval)
+            else:
+                self.right.insert(newval)   
+                
+root = TreeNode(val=5, left =3, right =6)
+        
+root = TreeNode(val=5)
+root.insert(3)
+root.insert(6)
+root.insert(2)
+root.insert(4)
+root.insert(1)
+root.insert(8)
+root.insert(7)
+root.insert(9)
 
 class Solution:
-    def deepestLeavesSum(self, root: TreeNode) -> int:
-        def deepestleaf(root):
-            out=[]
-            if root.left:
+    
+    def deepestLeavesSum(self, root):
         
-                deepestleaf(root.left)
-                out=root.left.val
-            #print(out, root.left.val)
-                
-            return out  
+        #find max depth 
+        def findmaxRDepth(root, cnt):
+            if root is not None: 
+            #first find deepest node on left-sub tree
+                findmaxRDepth(root.left,cnt)    
+                cnt.append(root.val)
+              
+        def lDepth(root, cnt):
+            if root is not None: 
+            #first find deepest node on right-sub tree
+                lDepth(root.right,cnt)    
+                cnt.append(root.val)
+    
             
-        def deepest_rleaf(root):
-            out=[]
-            if root.right:
         
-                deepestleaf(root.right)
-                out=root.right.val
-          
-            return out  
-        out1 = deepestleaf(root)
-        out2 = deepest_rleaf(root)  
-        out = out1+out2
-        return out            
+        cntL = []
+        findmaxRDepth(root,cntL)
+        cntr=[]
+        lDepth(root,cntr)
+        
+        deepsum = cntL[0]+cntr[0]
+        return deepsum
+        #get the deepest value on each side and add it up
+        
+
+
 
 a=Solution()
 a.deepestLeavesSum(root)
