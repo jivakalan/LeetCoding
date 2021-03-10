@@ -86,3 +86,48 @@ class Solution:
 
 a=Solution()
 a.deepestLeavesSum(root)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+class Solution:
+    
+    def deepestLeavesSum(self, root):
+        
+        def deepsum(root,cnt):
+            
+            if root is not None: 
+                
+                deepsum(root.left, cnt)
+                cnt.append(root.left.val , root.right.val)
+            
+        cnt =[]
+        deepsum(root,cnt)
+        return cnt
+    
+a=Solution()
+a.deepestLeavesSum(root)
+#
+
+
+
+
+
+
+
+
+
+
+
