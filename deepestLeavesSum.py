@@ -27,9 +27,9 @@ class TreeNode:
         self.val = val
         self.left = left
         self.right = right
-        #why does this self.left and slef.right exist? shoudl they not be Nodes themselves...
         
     def insert(self, newval):
+        
         if newval < self.val:
             if self.left is None:
                 self.left = TreeNode(newval)
@@ -41,8 +41,11 @@ class TreeNode:
             else:
                 self.right.insert(newval)   
                 
-root = TreeNode(val=5, left =3, right =6)
-        
+
+root = TreeNode(
+[6,7,8,2,7,1,3,9,null,1,4,null,null,null,5])        
+
+
 root = TreeNode(val=5)
 root.insert(3)
 root.insert(6)
@@ -100,22 +103,21 @@ a.deepestLeavesSum(root)
 
 
 
-
-
 class Solution:
     
     def deepestLeavesSum(self, root):
         
-        def deepsum(root,cnt):
+        def deepsum(root):
             
-            if root is not None: 
+            if not root:
+                return None
+            
+            print(root.left.val,root.right.val)
+            deepsum(root.left)
+               # deepsum(root.right)
                 
-                deepsum(root.left, cnt)
-                cnt.append(root.left.val , root.right.val)
-            
-        cnt =[]
-        deepsum(root,cnt)
-        return cnt
+
+    
     
 a=Solution()
 a.deepestLeavesSum(root)
