@@ -92,6 +92,20 @@ a.deepestLeavesSum(root)
 
 
 
+#bfs or dfs 
+#dfs - keep track of max depth (mpass depth to dfs method - whe nwe are at depth bigger than amx depth)
+##dfs (node(,depth)
+##if depth > max_depth then new max_depth ----and reset the sum of all nodes 
+
+
+
+self.maxDepth 
+self.result
+dfs(node,depth)
+if depth > self.maxDepth:
+    self.result = node.val
+else depth == self.maxDepth 
+
 
 
 
