@@ -56,9 +56,15 @@ root.insert(8)
 root.insert(7)
 root.insert(9)
 
+
+
+
+
 class Solution:
     
     def deepestLeavesSum(self, root):
+        #hard coded maxDepth for testing
+        #maxDepth = 3
         
         #find max depth 
         def findmaxRDepth(root, cnt):
@@ -66,84 +72,110 @@ class Solution:
             #first find deepest node on left-sub tree
                 findmaxRDepth(root.left,cnt)    
                 cnt.append(root.val)
+
               
         def lDepth(root, cnt):
             if root is not None: 
             #first find deepest node on right-sub tree
                 lDepth(root.right,cnt)    
                 cnt.append(root.val)
-    
-            
-        
+                
         cntL = []
         findmaxRDepth(root,cntL)
         cntr=[]
         lDepth(root,cntr)
+        maxDepth = max(len(cntL), len(cntr))
+
+        dic={}
+        def dfs(root,depth):
+           # if root is not None:
+            if depth in dic:
+    
+                dic[depth] += root.val
+            else:
+                dic[depth] = 0
+                dic[depth] += root.val
+
+            if depth+1< maxDepth:
+                if root.left:
+                    dfs(root.left, depth+1)
+                if root.right:
+                    dfs(root.right, depth+1)
+
         
-        deepsum = cntL[0]+cntr[0]
-        return deepsum
-        #get the deepest value on each side and add it up
-        
+        dfs(root, depth=0)
+        return dic[maxDepth-1]
+
 
 
 
 a=Solution()
 a.deepestLeavesSum(root)
 
-
-
-#bfs or dfs 
-#dfs - keep track of max depth (mpass depth to dfs method - whe nwe are at depth bigger than amx depth)
-##dfs (node(,depth)
-##if depth > max_depth then new max_depth ----and reset the sum of all nodes 
-
-
-
-self.maxDepth 
-self.result
-dfs(node,depth)
-if depth > self.maxDepth:
-    self.result = node.val
-else depth == self.maxDepth 
-
-
-
-
-
-
-
-
-
+root = TreeNode(val=37)
+root.insert(97)
+root.insert(18)
+root.insert(19)
+root.insert(25)
 
 
 
 class Solution:
     
+        
     def deepestLeavesSum(self, root):
         
-        def deepsum(root):
+        #find max depth 
+        def findmaxRDepth(root, cnt):
             
-            if not root:
-                return None
-            
-            print(root.left.val,root.right.val)
-            deepsum(root.left)
-               # deepsum(root.right)
+            if root is not None: 
+            #first find deepest node on left-sub tree
+                findmaxRDepth(root.left,cnt)   
+                if root.val != node:
+                    
+                    findmaxRDepth(root.right, cnt)
+                cnt.append(root.val)
+        
+              
+        def lDepth(root, cnt):
+            if root is not None: 
+            #first find deepest node on right-sub tree
+                lDepth(root.right,cnt) 
+                if root.val != node:
+                    lDepth(root.left,cnt)
+                cnt.append(root.val)
+        
                 
+        cntL = []
+        node = root.val
+        findmaxRDepth(root,cntL)
+        
+        cntr=[]
+        node = root.val
+        lDepth(root,cntr)
+        maxDepth = max(len(cntL), len(cntr))
+        
+            
+    
+        dic={}
+        def dfs(root,depth):
+           # if root is not None:
+            if depth in dic:
+    
+                dic[depth] += root.val
+            else:
+                dic[depth] = 0
+                dic[depth] += root.val
+    
+            if depth+1< maxDepth:
+                if root.left:
+                    dfs(root.left, depth+1)
+                if root.right:
+                    dfs(root.right, depth+1)
+    
+        
+        dfs(root, depth=0)
+        return dic[max(dic, key=int)]
 
-    
-    
 a=Solution()
 a.deepestLeavesSum(root)
-#
-
-
-
-
-
-
-
-
-
-
-
