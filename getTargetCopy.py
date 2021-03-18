@@ -43,6 +43,7 @@ Example 4:
 Input: tree = [1,2,3,4,5,6,7,8,9,10], target = 5
 Output: 5
 Example 5:
+    
 
 
 Input: tree = [1,2,null,3], target = 2
@@ -55,6 +56,22 @@ Output: 2
 #         self.left = None
 #         self.right = None
 
+# class TreeNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+
 class Solution:
     def getTargetCopy(self, original: TreeNode, cloned: TreeNode, target: TreeNode) -> TreeNode:
         
+        def inorder(cloned):
+            if not cloned:
+                
+                inorder(cloned.left)
+                if cloned.val == target.val:
+                    return cloned.val
+                else:
+                    False 
+        
+        out = inorder(cloned)
