@@ -27,6 +27,9 @@ Input: root = [1,null,2,3,4,5,null,null,6,7,null,8,null,9,10,null,null,11,null,1
 Output: [2,6,14,11,7,3,12,8,4,13,9,10,5,1]
 
 
+#what is post0order traversal? 
+###used to delte the tree!?
+##left, right, root
 
 """
 # Definition for a Node.
@@ -37,5 +40,21 @@ class Node:
 """
 
 class Solution:
-    def postorder(self, root: 'Node') -> List[int]:
+    def postorder(self, root):
         
+        
+        def posto(root,result):
+            if not root:
+                return None
+            
+            posto(root.left, result)
+            posto(root.right, result)
+            result.append(root.val)
+        
+        result=[]
+        out = posto(root, result)
+        
+        return out
+
+a=Solution()
+a.postorder(root)
