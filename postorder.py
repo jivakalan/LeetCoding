@@ -113,26 +113,35 @@ root = n0
 
 
 
+#solution accepted, but odesn't account for tree depths >2
 
-
+#solved, submitted!
+        
 
 class Solution:
     def postorder(self, root):
         
-        out =[]
-        for i in range(0,len(root.children)):
-            if root.children[i].children:
-                
-                for j in range(0,len(root.children[i].children)):
-                    print(n0.children[i].children[j].val)
-                    out.append(root.children[i].children[j].val)
-                
-           # print(n0.children[i].val)
-            out.append(root.children[i].val)
-        #print(n0.val)
-        out.append(root.val)
         
-        return out
+        
+        def po(root, result):
 
+            if root.children:
+                for i in range(0,len(root.children)):
+                    po(root.children[i], result)
+                    result.append(root.children[i].val)
+        
+
+        if not root:
+            return None
+            
+        else:
+            result=[]
+            po(root,result)
+            result.append(root.val)
+        
+        return result
+        
 a=Solution()
 a.postorder(root)
+
+a.postorder(root=[])
