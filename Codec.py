@@ -15,17 +15,35 @@ Design the encode and decode methods for the TinyURL service. There is no restri
 
 
 class Codec:
-
+    import random
     def encode(self, longUrl: str) -> str:
         """Encodes a URL to a shortened URL.
         """
+        dic={}
+        dist = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'
+
+        if longUrl not in dic:
+            shortUrl=''.join(random.choice(dist) for i in range(6))
+            dic[shortUrl]= longUrl
         
+        return 'http://tinyurl.com/'+shortUrl
 
     def decode(self, shortUrl: str) -> str:
         """Decodes a shortened URL to its original URL.
         """
-        
+        return dic[shortUrl]
 
 # Your Codec object will be instantiated and called as such:
 # codec = Codec()
 # codec.decode(codec.encode(url))
+
+
+
+url='https://leetcode.com/problems/design-tinyurl'
+
+
+
+    
+    
+codec = Codec()
+codec.decode(codec.encode(url))
