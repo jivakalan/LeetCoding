@@ -21,31 +21,43 @@ class Codec:
     def encode(self, longUrl: str) -> str:
         """Encodes a URL to a shortened URL.
         """
-        dic={}
+        self.dic={}
         dist = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'
 
-        if longUrl not in dic:
-            shortUrl=''.join(random.choice(dist) for i in range(6))
-            dic[shortUrl]= longUrl
+        #if longUrl not in self.dic:
+        for key,value in self.dic.items():
+            if longUrl not in value:
+                
+                shortUrl=''.join(random.choice(dist) for i in range(6))
+                self.dic[shortUrl]= longUrl
         
-        return 'http://tinyurl.com/'+shortUrl
+#        return 'http://tinyurl.com/'+shortUrl
 
     def decode(self, shortUrl: str) -> str:
         """Decodes a shortened URL to its original URL.
         """
-        return dic[shortUrl]
+        
+        return self.dic[shortUrl]
 
-# Your Codec object will be instantiated and called as such:
-# codec = Codec()
-# codec.decode(codec.encode(url))
-
-
-
+longUrl='https://leetcode.com/problems/design-tinyurl'
 url='https://leetcode.com/problems/design-tinyurl'
 
 
-
-    
-    
 codec = Codec()
+
+codec.encode(url)
+
+codec.decode('81DoQR')
+
 codec.decode(codec.encode(url))
+
+
+dic={}
+dist = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'
+
+#if longUrl not in self.dic:
+for key,value in dic.items():
+    if:
+        
+        shortUrl=''.join(random.choice(dist) for i in range(6))
+        dic[shortUrl]= longUrl
