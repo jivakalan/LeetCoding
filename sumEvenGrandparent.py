@@ -54,22 +54,28 @@ root.insert(7)
 root.insert(9)
 
 
-# Definition for a binary tree node.
-# class TreeNode:
-#     def __init__(self, val=0, left=None, right=None):
-#         self.val = val
-#         self.left = left
-#         self.right = right
 class Solution:
+    
     def sumEvenGrandparent(self, root):
+        self.res=0
         
-        def inOrder(root):
+        def inOrder(root, parent = 1, gparent =1):            
+            if root:
+                if gparent % 2 == 0:
+                    self.res+= root.val
+                    print(gparent)
+    
+                inOrder(root.left, root.val, parent)
+               # print(root.val, gparent)
+                inOrder(root.right, root.val, parent)
+                
+        inOrder(root)
+        
+        return self.res
             
-            if not root:
-                return None
-            
-            inOrder(root.left)
-            
+    
+a=Solution()
+a.sumEvenGrandparent(root)
             
             
             
