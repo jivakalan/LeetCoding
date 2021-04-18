@@ -17,9 +17,7 @@ Created on Fri Mar 26 19:55:09 2021
 # Output: 18
 # Explanation: The red nodes are the nodes with even-value grandparent while the blue nodes are the even-value grandparents.
 # =============================================================================
-#####
-####@
-#solved--
+
 class TreeNode:
     def __init__(self, val=0, left=None, right=None):
         self.val = val
