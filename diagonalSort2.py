@@ -12,7 +12,7 @@ Created on Sun Apr 18 20:16:32 2021
 
 mat = [[3,3,1,1],[2,2,1,2],[1,1,1,2]]
 
-        
+
 class Solution:
     def diagonalSort(self, mat):
 
@@ -36,7 +36,10 @@ class Solution:
             if key >=0 :
                 for i in range(0,len(dic[key])):
                     mat[0+i][key+i]= dic[key][i]
-        
+            if key <0:
+                for i in range(0,len(dic[key])):
+                    mat[-key+i][i]= dic[key][i]
+                
         return mat 
 
 
