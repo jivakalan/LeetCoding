@@ -17,19 +17,63 @@ Created on Mon Apr 26 12:33:47 2021
 
 # A preorder traversal of a binary tree displays the value of the node first, then traverses Node.left, then traverses Node.right.
 
-Input: preorder = [8,5,1,7,10,12]
-Output: [8,5,10,1,7,null,12]
-Example 2:
+preorder = [8,5,1,7,10,12]
+Output= [8,5,10,1,7,null,12]
 
-Input: preorder = [1,3]
-Output: [1,null,3]
+
+
+
+
+def insert(root, data):
+    
+    if data < root.val:
+        if root.left:
+            insert(root.left, data)
+        else:
+            root.left = TreeNode(data)
+    if data > root.val:
+        if root.right:
+            insert(root.right, data)
+        else:
+            root.right = TreeNode(data)
+            
+root = TreeNode(preorder[0])     
+    
+for i in range(1,len(preorder)):
+    insert(root, preorder[i])
+
+
+def crawl(root,res):
+
+    if not root.left:
+        res.append(None)
+        
+        
+    else:
+        res.append(root.left.val)
+        
+    if not root.right:
+        res.append(None)
+    else:
+        res.append(root.right.val)
+    
+    crawl(root.left, res)
+    crawl(root.right,res)
+    
+
+res=[]
+res.append(root.val)
+crawl(root,res) 
+
+return res   
 
 # Definition for a binary tree node.
-# class TreeNode:
-#     def __init__(self, val=0, left=None, right=None):
-#         self.val = val
-#         self.left = left
-#         self.right = right
+class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
 class Solution:
-    def bstFromPreorder(self, preorder: List[int]) -> TreeNode:
+    def bstFromPreorder(self, preorder):
+        
         
