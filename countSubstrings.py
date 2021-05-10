@@ -18,7 +18,7 @@ Return the number of substrings that satisfy the condition above.
 A substring is a contiguous sequence of characters within a string.
 
  
-
+##
 Example 1:
 
 Input: s = "aba", t = "baba"
