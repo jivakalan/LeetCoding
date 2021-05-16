@@ -25,23 +25,10 @@ Created on Sat May  1 22:51:23 2021
 # The underlined portions are the substrings that are chosen from s and t.
 
 
-s='ab' 
-t='bb'
 
 
-# def strdif(s,t):
-#     if len(s) != len(t):
-#         return 0
-#     else:
-        
-#         cntr=0
-#         for i in range(len(s[0:3])):
-#             if i < len(t):
-                
-#                 if s[i] != t[i]:
-#                     cntr+=1 
-#         return cntr
-    
+
+
 # count = 0
 # for i in range(len(s)):
     
@@ -81,27 +68,47 @@ for i in range(1,len(s)+1):
 class Solution:
     def countSubstrings(self, s: str, t: str) -> int:
         
-        res=0
-        for i in range(1,len(s)+1): 
-           for j in range(len(s)-i+1):
-               for k in range(len(t)-i+1):
-                   
-                   cnt = 0
-                   for x, y in zip(s[j:j+i], t[k:k+i]):
-                       
-                       if x != y:
-                           cnt += 1
-                       if cnt > 1:
-                           break
-                   if cnt <= 1 and cnt != 0:
-                       res += 1
 
-
-        return res
+        def strdif(s,t):
+            if len(s) != len(t):
+                return 0
+            else:
+                
+                cntr=0
+                for i in range(len(s[0:3])):
+                    if i < len(t):
+                        
+                        if s[i] != t[i]:
+                            cntr+=1 
+                return cntr
+        
+        
+        im =[]
+        for i in range(len(s)): 
+           for j in range(i,len(s)):
+               im.append(s[i:j+1])
+             
+        sec=[]
+        for k in range(len(t)):
+            for l in range(k,len(t)):
+                sec.append(t[k:l+1])
+        
+        count=0          
+        for i in im:
+            for j in sec:
+                if len(i)==len(j):
+                    if strdif(i,j) ==1:
+                        count+=1
+        
+        return count
     
 a=Solution()
 a.countSubstrings(s, t)
 
 a.countSubstrings("ab","bb")
+#only case where it doesn't work!
+a.countSubstrings("abbab", "bbbbb")
+-----
+a.countSubstrings(s = "abe", t = "bbc")
+a.countSubstrings(s = "a", t = "a")
 
-    
