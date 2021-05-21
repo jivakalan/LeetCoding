@@ -17,8 +17,7 @@ Created on Sun May  2 12:36:20 2021
 # Example 1:
 
 
-# Input: graph = [[1,2],[3],[3],[]]
-# Output: [[0,1,3],[0,2,3]]
+# Input: graph = [[1,2],[3],[3],[]] Output: [[0,1,3],[0,2,3]]
 # Explanation: There are two paths: 0 -> 1 -> 3 and 0 -> 2 -> 3.
 
 
