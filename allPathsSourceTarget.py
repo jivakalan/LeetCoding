@@ -21,7 +21,22 @@ Created on Sun May  2 12:36:20 2021
 # Explanation: There are two paths: 0 -> 1 -> 3 and 0 -> 2 -> 3.
 
 
+graph = [[1,2],[3],[3],[]] 
 
+for i in range(len(graph)):
+    for connected_nodes in graph[i]:
+        
+        print(i, connected_nodes)
+        
+    print(node, graph[node],graph[node+1])
+
+out = []
+for i in range(len(graph)):
+    for y in range(i+1,len(graph)):
+        
+        
+        
+        print(i, y)
 
 
 class Solution:
