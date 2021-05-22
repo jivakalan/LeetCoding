@@ -23,22 +23,45 @@ Created on Sun May  2 12:36:20 2021
 
 graph = [[1,2],[3],[3],[]] 
 
-for i in range(len(graph)):
-    for connected_nodes in graph[i]:
-        
-        print(i, connected_nodes)
-        
-    print(node, graph[node],graph[node+1])
 
-out = []
-for i in range(len(graph)):
-    for y in range(i+1,len(graph)):
-        
-        
-        
-        print(i, y)
+
+
+
 
 
 class Solution:
-    def allPathsSourceTarget(self, graph: List[List[int]]) -> List[List[int]]:
+    def allPathsSourceTarget(self, graph):
+        queue = []
+
+        for i in range(len(graph[0])):
+            print(graph[0][i])
+            queue.insert(i, [graph[0][i]])    
+            
+        for i in queue:
+            i.insert(0,0)
+            
+        #start = 0 
+        target = len(graph)-1
         
+        
+        #queue = [[0,1],[0, 2]]
+        out=[]
+        
+        for i in queue:
+            
+            if i[-1]== target:
+                out.append(i)
+            else:
+                i.append(graph[i[-1]][0])
+                if i[-1]== target:
+                    out.append(i)
+        
+        return out 
+    
+a=Solution()
+a.allPathsSourceTarget(graph = [[1,2],[3],[3],[]] )
+a.allPathsSourceTarget(graph = [[1],[]])
+a.allPathsSourceTarget(graph = [[1,2,3],[2],[3],[]])
+a.allPathsSourceTarget(graph = [[1,3],[2],[3],[]])
+
+a.allPathsSourceTarget(graph = [[4,3,1],[3,2,4],[3],[4],[]])
